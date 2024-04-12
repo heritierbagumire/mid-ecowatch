@@ -10,7 +10,7 @@ export const NAV_LINKS = [
     {
         title: 'Plastic Wastes',
         icon: '/plastic.svg',
-        variant: 'blue',
+        variant: 'green',
         data:'190',
         search:"Latest search",
         date:"12/05/2023"
@@ -20,8 +20,8 @@ export const NAV_LINKS = [
       icon: '/gas.svg',
       variant: 'red',
       data:'56',
-       search:"Latest search",
-       date:"12/05/2023"
+      search:"Latest search",
+      date:"12/05/2023"
     },
     {
         title: 'Chemical Wastes ',
