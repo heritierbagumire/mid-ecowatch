@@ -7,6 +7,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } f
 const data = [
   {
     name: "Jan",
+    yName: "L",
     waterGases: 4000,
     plastics: 2400,
     aquaticLife: 3000,
@@ -14,6 +15,7 @@ const data = [
   },
   {
     name: "Feb",
+    yName: "L",
     waterGases: 3000,
     plastics: 1398,
     aquaticLife: 2000,
@@ -21,6 +23,7 @@ const data = [
   },
   {
     name: "Mar",
+    yName: "L",
     waterGases: 2000,
     plastics: 3800,
     aquaticLife: 2780,
@@ -28,6 +31,7 @@ const data = [
   },
   {
     name: "Apr",
+    yName: "L",
     waterGases: 2780,
     plastics: 3908,
     aquaticLife: 1890,
@@ -35,6 +39,7 @@ const data = [
   },
   {
     name: "May",
+    yName: "L",
     waterGases: 1890,
     plastics: 4800,
     aquaticLife: 2390,
@@ -42,6 +47,7 @@ const data = [
   },
   {
     name: "Jun",
+    yName: "L",
     waterGases: 2390,
     plastics: 3800,
     aquaticLife: 3490,
@@ -49,6 +55,7 @@ const data = [
   },
   {
     name: "Jul",
+    yName: "L",
     waterGases: 3490,
     plastics: 4300,
     aquaticLife: 4800,
@@ -56,13 +63,15 @@ const data = [
   },
   {
     name: "Aug",
+    yName: "L",
     waterGases: 2780,
     plastics: 3908,
-    aquaticLife: 1890,
+    aquaticLife: 6890,
     chemicalWastes: 2390,
   },
   {
     name: "Sep",
+    yName: "L",
     waterGases: 1890,
     plastics: 4400,
     aquaticLife: 2790,
@@ -70,6 +79,7 @@ const data = [
   },
   {
     name: "Oct",
+    yName: "L",
     waterGases: 3000,
     plastics: 3800,
     aquaticLife: 2780,
@@ -77,6 +87,7 @@ const data = [
   },
   {
     name: "Nov",
+    yName: "L",
     waterGases: 2480,
     plastics: 3308,
     aquaticLife: 1290,
@@ -84,6 +95,7 @@ const data = [
   },
   {
     name: "Dec",
+    yName: "L",
     waterGases: 1480,
     plastics: 4308,
     aquaticLife: 1690,
