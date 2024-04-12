@@ -32,9 +32,9 @@ export function Nav({ links, isCollapsed }: NavProps) {
     <TooltipProvider>
       <div
         data-collapsed={isCollapsed}
-        className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
+        className="group flex flex-col gap-4 py-2 data-[collapsed=false]:pr-8  data-[collapsed=true]:pb-36 data-[collapsed=true]:rounded-md data-[collapsed=true]:pt-4 data-[collapsed=true]:bg-orange-200"
       >
-        <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
+        <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2 ">
           {links.map((link, index) =>
             isCollapsed ? (
               <Tooltip key={index} delayDuration={0}>
@@ -47,12 +47,12 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         size: "icon"
                       }),
                       "h-9 w-9",
-                      link.variant === "default" &&
-                        "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+                      link.variant === "default" ??
+                        "dark:bg-muted dark:text-muted-foreground dark:hover:bg-mute dark:hover:text-white"
                     )}
                   >
                     <link.icon className="h-4 w-4" />
-                    <span className="sr-only">{link.title}</span>
+                    <span className="sr-only dark:bg-mute">{link.title}</span>
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent
@@ -76,12 +76,12 @@ export function Nav({ links, isCollapsed }: NavProps) {
                     variant: link.href === pathName ? "default" : "ghost",
                     size: "sm"
                   }),
-                  link.variant === "default" &&
+                  link.variant === "default" ??
                     "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
                   "justify-start"
                 )}
               >
-                <link.icon className="mr-2 h-4 w-4" />
+                <link.icon className="mr-2  h-4 w-10" />
                 {link.title}
                 {link.label && (
                   <span

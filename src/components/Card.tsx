@@ -3,7 +3,18 @@
 import React from "react";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { StaticImageData } from "next/image";
 
+
+export type WastesProps = {
+  title: string;
+  icon: string;
+  variant: string;
+  backgroundFrame: StaticImageData;
+  data: string;
+  search: string;
+  date: string;
+};
 export type CardProps = {
   label: string;
   icon: LucideIcon;

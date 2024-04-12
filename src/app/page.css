@@ -1,0 +1,24 @@
+.BackgroundFrame0{
+  background-image: url('../../public/Frame1.png');
+  background-repeat: no-repeat;
+  background-size: 60%;
+
+}
+.BackgroundFrame1{
+  background-image: ('../../public/Frame2.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 60%;
+}
+.BackgroundFrame2{
+  background-image: ('../../public/Frame3.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 60%;
+}
+.BackgroundFrame3{
+  background-image: ('../../public/Frame4.png');
+  background-repeat: no-repeat;
+  background-position: bottom ;
+  background-size: 60%;
+}
