@@ -1,87 +1,118 @@
 /** @format */
-"use client";
-import React from "react";
-import {
-  BarChart as BarGraph,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  Bar
-} from "recharts";
+"use client"
 
-type Props = {};
+import styles from './charts.module.css';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
   {
     name: "Jan",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 4000,
+    plastics: 2400,
+    aquaticLife: 3000,
+    chemicalWastes: 2000,
   },
   {
     name: "Feb",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 3000,
+    plastics: 1398,
+    aquaticLife: 2000,
+    chemicalWastes: 2780,
   },
   {
     name: "Mar",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 2000,
+    plastics: 3800,
+    aquaticLife: 2780,
+    chemicalWastes: 1890,
   },
   {
     name: "Apr",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 2780,
+    plastics: 3908,
+    aquaticLife: 1890,
+    chemicalWastes: 2390,
   },
   {
     name: "May",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 1890,
+    plastics: 4800,
+    aquaticLife: 2390,
+    chemicalWastes: 3490,
   },
   {
     name: "Jun",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 2390,
+    plastics: 3800,
+    aquaticLife: 3490,
+    chemicalWastes: 4300,
   },
   {
     name: "Jul",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 3490,
+    plastics: 4300,
+    aquaticLife: 4800,
+    chemicalWastes: 3900,
   },
   {
     name: "Aug",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 2780,
+    plastics: 3908,
+    aquaticLife: 1890,
+    chemicalWastes: 2390,
   },
   {
     name: "Sep",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 1890,
+    plastics: 4400,
+    aquaticLife: 2790,
+    chemicalWastes: 3490,
   },
   {
     name: "Oct",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 3000,
+    plastics: 3800,
+    aquaticLife: 2780,
+    chemicalWastes: 1890,
   },
   {
     name: "Nov",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 2480,
+    plastics: 3308,
+    aquaticLife: 1290,
+    chemicalWastes: 2390,
   },
   {
     name: "Dec",
-    total: Math.floor(Math.random() * 5000) + 1000
+    waterGases: 1480,
+    plastics: 4308,
+    aquaticLife: 1690,
+    chemicalWastes: 2390,
   }
 ];
 
-export default function BarChart({}: Props) {
+
+
+export default function BarChart() {
   return (
-    <ResponsiveContainer width={"100%"} height={350}>
-      <BarGraph data={data}>
-        <XAxis
-          dataKey={"name"}
-          tickLine={false}
-          axisLine={false}
-          stroke="#888888"
-          fontSize={12}
-        />
-        <YAxis
-          tickLine={false}
-          axisLine={false}
-          stroke="#888888"
-          fontSize={12}
-          tickFormatter={(value) => `$${value}`}
-        />
-        <Bar dataKey={"total"} radius={[4, 4, 0, 0]}  className="text-white"/>
-      </BarGraph>
-    </ResponsiveContainer>
+<div className={styles.container}>
+      <h2 className={styles.title}>Weekly Recap</h2>
+      <p className={styles.title}> view the anual report of tests made in different waters.</p>
+       <ResponsiveContainer width="100%" height={300}>
+        <LineChart
+          data={data}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip contentStyle={{ background:"dark:#151c2c #fff", border:"none" }} />
+          <Legend />
+          <Line type="monotone" dataKey="waterGases" stroke="#FFA500" name="Water Gases" />
+          <Line type="monotone" dataKey="plastics" stroke="#008000" name="Plastics" />
+          <Line type="monotone" dataKey="aquaticLife" stroke="#808080" name="Aquatic Life" />
+          <Line type="monotone" dataKey="chemicalWastes" stroke="#964B00" name="Chemical Wastes" />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
 }
