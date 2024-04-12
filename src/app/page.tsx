@@ -16,6 +16,7 @@ import FrameFour from "../../public/Frame4.png"
 import Navbar from "@/components/navbar";
 import { url } from "inspector";
 import WastesCard from "@/components/WastesCard";
+import StatMap from "@/components/start-up";
 
 
  const WASTES: WastesProps[] = [
@@ -290,8 +291,13 @@ export default function Home() {
           ))}
         </CardContent>
 
-        {/*  */}
-      </section>
+          {/*  */}
+        </section>
+        <CardContent className="flex dark:bg-muted/40 mt-6 bg-white  justify-between gap-4">
+          <StatMap />
+        </CardContent>
+
+
     </div>
     </div>
   );
