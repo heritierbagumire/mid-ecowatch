@@ -113,10 +113,10 @@ export default function BarChart() {
        <ResponsiveContainer width="100%" height={300}>
         <LineChart
           data={data}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
         >
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis  />
           <Tooltip contentStyle={{ background:"dark:#151c2c #fff", border:"none" }} />
           <Legend />
           <Line type="monotone" dataKey="waterGases" stroke="#FFA500" name="Water Gases" />
