@@ -1,4 +1,4 @@
-/** @format */
+
 "use client";
 
 import { useState } from "react";
@@ -11,7 +11,10 @@ import {
   LayoutDashboard,
   UsersRound,
   Settings,
-  ChevronRight
+  
+  ChevronRight,
+  HomeIcon,
+  CameraIcon,
 } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -46,8 +49,8 @@ export default function SideNavbar({}: Props) {
           {
             title: "Dashboard",
             href: "/",
-            icon: LayoutDashboard,
-            variant: "default"
+            icon: HomeIcon,
+            variant: "ghost"
           },
           {
             title: "Users",
@@ -56,9 +59,9 @@ export default function SideNavbar({}: Props) {
             variant: "ghost"
           },
           {
-            title: "Ordrs",
-            href: "/orders",
-            icon: ShoppingCart,
+            title: "Camera",
+            href: "/camera",
+            icon: CameraIcon,
             variant: "ghost"
           },
           {

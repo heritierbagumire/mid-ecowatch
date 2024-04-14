@@ -17,6 +17,9 @@ import Navbar from "@/components/navbar";
 import { url } from "inspector";
 import WastesCard from "@/components/WastesCard";
 import StatMap from "@/components/start-up";
+import styles from './page.module.css';
+import SpeedCard from "@/components/speed-card";
+import MapCard from "@/components/map-card";
 
 
  const WASTES: WastesProps[] = [
@@ -32,7 +35,7 @@ import StatMap from "@/components/start-up";
    {
      title: 'Gas Wastes',
      icon: '/gas.svg',
-     variant: 'red',
+     variant: 'orange',
      backgroundFrame: FrameOne,
      data:'56',
      search:"Latest search",
@@ -109,9 +112,8 @@ export const STATES: WasteCardProps[] = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-5 w-full">
+    <div className="flex flex-col gap-5 w-full overflow-hidden">
       <div className="relative top-0">
-
       <div className="sticky top-0">
          <Navbar />
         </div>
@@ -123,7 +125,7 @@ export default function Home() {
          {WASTES.map((waste, index) => (
     <div
       key={index}
-      className={`dark:bg-muted bg-${waste.variant}-200 dark:border dark:bg${waste.backgroundFrame} w-auto p-4 flex flex-col text-white BackgroundFrame${waste.backgroundFrame} gap-4 rounded-2xl`}
+      className={`dark:bg-muted bg-${waste.variant}-50 styles.color dark:border dark:bg${waste.backgroundFrame} w-auto p-4 flex flex-col text-white BackgroundFrame${waste.backgroundFrame} gap-4 rounded-2xl`}
              style={{ backgroundImage: `url(${waste.backgroundFrame.src})`, backgroundSize: `60%`, backgroundRepeat: 'no-repeat', backgroundPosition: 'top left' }}
     >
       <div className='bg-inherit'></div>
@@ -154,7 +156,7 @@ export default function Home() {
     <div
      
       className={`dark:bg-red-900 bg-green-800 dark:border  w-auto p-4 flex flex-col text-white gap-4 rounded-2xl`}
-      style={{ backgroundImage: `url(${FrameOne})` }}
+      style={{ backgroundImage: `url(${FrameOne})`, backgroundBlendMode: "darken" }}
     >
       <div className='bg-inherit'></div>
       <div className='flex justify-between items-center'>
@@ -296,6 +298,14 @@ export default function Home() {
         <CardContent className="flex dark:bg-muted/40 mt-6 bg-white  justify-between gap-4">
           <StatMap />
         </CardContent>
+        <section className="grid grid-cols-1 mt-4 dark:bg-inherit bg-white rounded-md gap-4 transition-all lg:grid-cols-2">
+          <CardContent className="flex dark:bg-muted/40 mt-6 bg-white  justify-between gap-4">
+            <SpeedCard />
+          </CardContent>
+          <CardContent className="flex dark:bg-muted/40 mt-6 bg-white  justify-between gap-4">
+            <MapCard />
+          </CardContent>
+        </section>
 
 
     </div>

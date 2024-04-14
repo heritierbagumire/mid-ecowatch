@@ -22,3 +22,8 @@
   background-position: bottom ;
   background-size: 60%;
 }
+.color {
+  font-weight: 100;
+  backface-visibility:hidden !important;
+  background-color: color-mix(in oklab, color percentage, color percentage) !important;
+}

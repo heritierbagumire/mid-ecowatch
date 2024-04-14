@@ -1,13 +1,11 @@
 import Image from "next/image";
-import SettingsPage from "./SettingsPage";
-
+import Statistics from "./Statistics";
 
 
 export default function Home() {
   return (
     <main>
-      <SettingsPage/>
-    {/* <Dashboard/> */}
+   <Statistics/>
     </main>
   );
 }

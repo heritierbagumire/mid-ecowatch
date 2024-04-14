@@ -4,7 +4,6 @@
 
 import Link from "next/link";
 import { LucideIcon } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -20,7 +19,7 @@ interface NavProps {
   links: {
     title: string;
     label?: string;
-    icon: LucideIcon;
+    icon: LucideIcon | string;
     variant: "default" | "ghost";
     href: string;
   }[];
