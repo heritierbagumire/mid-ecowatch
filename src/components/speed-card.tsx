@@ -10,7 +10,7 @@ const data = [
 const COLORS = ['#172554', '#1e40af'];
 const SpeedCard = () => {
   return (
-      <div className='border-2 p-4 rounded-md m-4'>
+      <div className=' p-4 rounded-md m-4'>
           <div>
               <h2 className='font-bold flex justify-between'> Water Wastes<span className='font-normal text-gray-30 '>
                   <Link className='flex items-center gap-4' href="/">details

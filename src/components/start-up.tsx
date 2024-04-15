@@ -31,14 +31,6 @@ function StatMap() {
   <p className='text-gray-30 text-[14px]'>See the level of water in different waters</p>
 <div className='flex'>
   <div className='w-[450px] h-[300px]  flex p-4'>
-    <Image
-    src="/map.png"
-    alt='map'
-    width={450}
-    height={100}
-    />
-
-
   </div>
 
 <div className='flex flex-col gap-4 justify-center '>
