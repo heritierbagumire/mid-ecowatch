@@ -3,6 +3,7 @@ import PageTitle from './PageTitle'
 import { Search } from './ui/search'
 import { ThemeToggle } from './theme-toggle'
 import { UserNav } from './ui/user-nav'
+import { CommandMenu } from './search-menu'
 
 const Navbar = () => {
   return (
@@ -12,7 +13,7 @@ const Navbar = () => {
         <PageTitle className="text-xs md:text-sm lg:text-lg" title="Dashboard" />
       </div>
       <div className="flex items-center justify-center">
-        <Search />
+        <CommandMenu />
       </div>
       <div className="flex items-center space-x-3 justify-center">
         <ThemeToggle />
