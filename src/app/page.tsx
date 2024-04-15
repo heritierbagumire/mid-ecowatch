@@ -295,14 +295,11 @@ export default function Home() {
 
           {/*  */}
         </section>
-        <CardContent className="flex dark:bg-muted/40 mt-6 bg-white  justify-between gap-4">
-          <StatMap />
-        </CardContent>
-        <section className="grid grid-cols-1 mt-4 dark:bg-inherit bg-white rounded-md gap-4 transition-all lg:grid-cols-2">
-          <CardContent className="flex dark:bg-muted/40 mt-6 bg-white  justify-between gap-4">
+        <section className="grid grid-cols-1 mt-4 dark:bg-inherit  bg-white rounded-md gap-4 transition-all lg:grid-cols-2">
+          <CardContent className="flex dark:bg-muted/40 mt-6 border-transparent bg-white  justify-between gap-4">
             <SpeedCard />
           </CardContent>
-          <CardContent className="flex dark:bg-muted/40 mt-6 bg-white  justify-between gap-4">
+          <CardContent className="flex  mt-6 dark:bg-muted/40 bg-white  justify-between gap-4">
             <MapCard />
           </CardContent>
         </section>
