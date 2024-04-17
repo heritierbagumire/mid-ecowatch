@@ -1,12 +1,10 @@
 import React from 'react'
-interface Props{
-    width:string
-   }
 
-function ManualUse({width}:Props) {
+
+function ManualUse() {
   return (
-    <section className={`p-6 rounded-2xl w-${width} bg-white flex flex-col gap-6 mt-2`}>
-    <div className='flex flex-col gap-8'>
+    <section className={`p-6 dark:bg-muted rounded-2xl w-3/5 lg:w-3/6 bg-white flex flex-col gap-6 mt-2 overflow-hidden`}>
+    <div className='flex flex-col gap-8 flex-wrap '>
         <h1 className='font-bold text-blue-dark text-2xl'>Water Drone User Manual</h1>
         <p>Congratulations on acquiring your water drone integrated with a system interface! 
             This manual will guide you through the proper usage of your water drone and its interface system for optimal performance and functionality.</p>
@@ -16,7 +14,7 @@ function ManualUse({width}:Props) {
         <div><p>Carefully unpack and assemble the water drone according to the provided instructions.</p>
         <ul className='list-disc ml-5'>
         <li>Ensure that all components, including the propulsion system, sensors, and communication modules, are securely connected and functional.</li>
-        <li>Charge the drone's batteries fully before the initial use to ensure uninterrupted operation.</li>
+        <li>Charge the drones batteries fully before the initial use to ensure uninterrupted operation.</li>
         </ul>
         </div>
     </div>
