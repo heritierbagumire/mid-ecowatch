@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -28,7 +29,8 @@ const LoadingBar = () => {
   return (
     <div className="flex flex-col items-end justify-center gap-2">
         <div className='flex justify-between  w-full'>
-  
+        <FontAwesomeIcon icon={faMinus} onClick={handleDecrement} className='cursor-pointer'/>
+        <FontAwesomeIcon icon={faPlus} onClick={handleIncrement} className='cursor-pointer' />
         </div>
       <div className={barStyle}>
         <div className={fillStyle}></div>
