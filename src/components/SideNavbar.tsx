@@ -14,7 +14,10 @@ import {
   
   ChevronRight,
   HomeIcon,
-  CameraIcon,
+  LucideCamera,
+ 
+  LocateIcon,
+  User2Icon,
 } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -55,13 +58,19 @@ export default function SideNavbar({}: Props) {
           {
             title: "Users",
             href: "/users",
-            icon: UsersRound,
+            icon: User2Icon,
+            variant: "ghost"
+          },
+          {
+            title: "Location",
+            href: "/location",
+            icon: LocateIcon,
             variant: "ghost"
           },
           {
             title: "Camera",
             href: "/camera",
-            icon: CameraIcon,
+            icon: LucideCamera,
             variant: "ghost"
           },
           {

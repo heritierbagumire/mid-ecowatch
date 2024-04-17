@@ -1,8 +1,8 @@
 import React from 'react'
 
-function TermsPrivacy({width}:Props) {
+function TermsPrivacy() {
   return (
-    <section className={`p-6 rounded-2xl w-${width} bg-white flex flex-col gap-6 mt-2`}>
+    <section className={`p-6 rounded-2xl w-3/5 lg:w-3/4 bg-white flex flex-col gap-6 mt-2`}>
     <div className='flex flex-col gap-8'>
         <h1 className='font-bold text-blue-dark text-2xl'>Terms Of Use And Privacy Policy</h1>
     </div>
@@ -14,7 +14,7 @@ function TermsPrivacy({width}:Props) {
 
 
 
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col gap-4 max-w-4xl'>
         <h2 className='font-bold'>2. Terms of use</h2>
   
         <ul className='list-disc ml-5 flex flex-col gap-4'>

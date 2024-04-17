@@ -2,7 +2,6 @@
 import React,{useState} from 'react'
 import Header from '../Header'
 import NavBar from '../NavBar'
-import SideBar from './SideBar'
 import ManualUse from './ManualUse'
 import Licence from './Licence'
 import Structure from './Structure'
@@ -11,45 +10,39 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Mode from './Mode'
 import { faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons/faArrowAltCircleDown'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Button } from '@/components/ui/button'
 
 function SettingsPage() {
-  const [selectedPage,setSelectedPage] = useState<string>("System Mode")
-  
-  const handlePageSelection =(page :string) =>{
-    setSelectedPage(page);
-  };
-  const [hidden, setHidden] = useState(false);
-  const handleHidden =()=> 
-  {
-   setHidden(!hidden);
-  }
-
   return (
-    <div className='flex bg-gray-15' >
-    <NavBar />
-    <div className='flex flex-col gap-'>
-    <Header
-    title='Settings'
-    />
-
-    <div className='flex gap-6'>
-
-      <div className={`${hidden?'hidden':''} w-1/4 `}>
-        <SideBar selectedPage={selectedPage} onSelectPage={handlePageSelection}/>
-        </div>
-            {selectedPage === "Licence" && <Licence width={hidden?'full':'3/4'} />}
-            {selectedPage === "Components" && <Structure  width={hidden?'full':'3/4'} />}
-            {selectedPage === "Terms & Privacy" && <TermsPrivacy   width={hidden?'full':'3/4'}/>}
-            {selectedPage === "Usage Manual" &&  <ManualUse  width={hidden?'full':'3/4'}/>}
-            {selectedPage === "System Mode" && <Mode  width={hidden?'full':'3/4'}/>}
-            <FontAwesomeIcon icon={faBars} className={`fixed bg-orange-50 active:bg-gray-20 rounded-md w-8 h-8 p-2 left-6 ${hidden?'left-[31px] ':''}`} onClick={handleHidden}/>
-
+  <section className='container mx-auto overflow-hidden'>
       
-    </div>
+    <Tabs defaultValue="licence" className="w-[400px]  p-2">
+      <TabsList className="flex w-full items-center lg:ml-6 bg-transparent">
+        <TabsTrigger value="licence">Licence</TabsTrigger>
+        <TabsTrigger value="manuals">Manual Guide</TabsTrigger>
+        <TabsTrigger value="privacy">Privacy and Policies</TabsTrigger>
+        <TabsTrigger value="mode">Change Mode</TabsTrigger>        
+      </TabsList>
+      <TabsContent value="licence" className='w-screen' >
+        <Licence />
 
-    </div>
-       
-</div>
+      </TabsContent>
+      <TabsContent value="manuals" className='w-screen'>
+        <ManualUse />
+      </TabsContent>
+      <TabsContent value="privacy" className='w-screen'>
+       <TermsPrivacy />
+        </TabsContent>
+        <TabsContent value="mode" className='w-screen'>
+
+       <Mode />
+      </TabsContent>
+    </Tabs>
+  </section>
   )
 }
 

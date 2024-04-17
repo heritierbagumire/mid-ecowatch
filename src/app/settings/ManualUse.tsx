@@ -5,7 +5,7 @@ function ManualUse() {
   return (
     <section className={`p-6 dark:bg-muted rounded-2xl w-3/5 lg:w-3/6 bg-white flex flex-col gap-6 mt-2 overflow-hidden`}>
     <div className='flex flex-col gap-8 flex-wrap '>
-        <h1 className='font-bold text-blue-dark text-2xl'>Water Drone User Manual</h1>
+        <h1 className='font-bold dark:text-muted-foreground text-blue-dark text-2xl'>Water Drone User Manual</h1>
         <p>Congratulations on acquiring your water drone integrated with a system interface! 
             This manual will guide you through the proper usage of your water drone and its interface system for optimal performance and functionality.</p>
     </div>
