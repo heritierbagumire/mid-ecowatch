@@ -2,9 +2,9 @@ import React from 'react'
 
 function TermsPrivacy() {
   return (
-    <section className={`p-6 rounded-2xl w-3/5 lg:w-3/4 bg-white flex flex-col gap-6 mt-2`}>
+    <section className={`p-6 rounded-2xl w-3/5 lg:w-3/4 dark:bg-muted bg-white flex flex-col gap-6 mt-2`}>
     <div className='flex flex-col gap-8'>
-        <h1 className='font-bold text-blue-dark text-2xl'>Terms Of Use And Privacy Policy</h1>
+        <h1 className='font-bold dark:text-muted-foreground text-blue-dark text-2xl'>Terms Of Use And Privacy Policy</h1>
     </div>
     <div className='flex flex-col gap-5'>
         <h2 className='font-bold'>1. Introduction</h2>

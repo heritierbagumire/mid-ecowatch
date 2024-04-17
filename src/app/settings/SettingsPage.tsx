@@ -2,6 +2,7 @@
 import React,{useState} from 'react'
 import Header from '../Header'
 import NavBar from '../NavBar'
+
 import ManualUse from './ManualUse'
 import Licence from './Licence'
 import Structure from './Structure'
