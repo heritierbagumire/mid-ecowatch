@@ -124,13 +124,13 @@ export default function DashboardPage() {
          {WASTES.map((waste, index) => (
     <div
       key={index}
-      className={`dark:bg-muted bg-${waste.variant}-50 styles.color dark:border dark:bg${waste.backgroundFrame} w-auto p-4 flex flex-col text-white BackgroundFrame${waste.backgroundFrame} gap-4 rounded-2xl`}
-             style={{ backgroundImage: `url(${waste.backgroundFrame.src})`, backgroundSize: `60%`, backgroundRepeat: 'no-repeat', backgroundPosition: 'top left' }}
+      className={`dark:bg-muted bg-${waste.variant}-50 styles.color dark:border dark:bg${waste.backgroundFrame} w-auto p-4 flex flex-col text-white opacity-95 BackgroundFrame${waste.backgroundFrame} gap-4 rounded-2xl`}
+             style={{ backgroundImage: `url(${waste.backgroundFrame.src})`, backgroundSize: `60%`, backgroundRepeat: 'no-repeat', backgroundPosition: 'top left', opacity:'unset' }}
     >
       <div className='bg-inherit'></div>
       <div className='flex justify-between items-center'>
-        <h2 className={`dark:text-white text-white font-bold`}>{waste.title}</h2>
-       <div className='dark:bg-white  bg-gray-transparent  p-2 rounded-full w-9 h-9 flex justify-center items-center'>
+        <h2 className={`dark:text-white -mt-8 text-white font-bold`}>{waste.title}</h2>
+       <div className='dark:bg-white -mt-6 bg-gray-transparent  p-2 rounded-full w-9 h-9 flex justify-center items-center'>
        <Image
        src={waste.icon}
 
@@ -141,7 +141,7 @@ export default function DashboardPage() {
         </div> 
   
       </div>
-      <h1 className='text-center dark:text-white text-white font-bold'>{waste.data} Littles </h1>
+      <h1 className='text-center dark:text-white text-white font-bold'>{waste.data} Litres </h1>
       <div className='flex flex-col items-end text-[12px]'>
         <p>{waste.search}</p>
         <p className='text-gray-300'>{waste.date}</p>
