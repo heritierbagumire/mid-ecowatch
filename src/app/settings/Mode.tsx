@@ -6,11 +6,8 @@ import Link from 'next/link'
 import { useState } from 'react'
 import LoadingBar from './LoadingBar'
 import Button from '../Button'
-interface Props{
-    width:string
-   }
 
-function Mode({width}:Props) {
+function Mode() {
     const [selectedTheme,setSelectedTheme] = useState<string>("Dark Mode")
   
     const handleThemeSelection =(theme :string) =>{
@@ -19,7 +16,7 @@ function Mode({width}:Props) {
 
     return (
 
-        <section className={`p-6 rounded-2xl w-${width} bg-white flex flex-col gap-6 mt-2`}>
+        <section className={`p-6 rounded-2xl w-3/5 lg:w-4/5 bg-white flex flex-col gap-6 mt-2`}>
             <div className='flex flex-col gap-8'>
                 <h1 className='font-bold text-blue-dark text-2xl'>Change The System Color Mode</h1>
                 <p>Congratulations on acquiring your water drone integrated with a system interface!
@@ -32,11 +29,11 @@ function Mode({width}:Props) {
             </div>
             <div className='flex gap-3'>
                 {MODES.map((theme, idx ) => (
-                    <div key={idx} className='flex flex-col gap-4 w-1/3'>
+                    <div key={idx} className='flex flex-col gap-4 w-2/5'>
                         {selectedTheme === "Licence"}
                     
                     <div key={theme.title} className={`bg-${theme.mainColor} bg-gray-10 flex flex-col gap-5 p-3 rounded-2xl ${theme.title === selectedTheme ?' border-2 border-dashed border-black shadow-lg shadow-gray-300' : 'border-none'} `}>
-                        <div className={`flex flex-col  justify-center gap-5 rounded-2xl p-3 pt-6 bg-${theme.secondColor}  ${width=='full' ? 'h-[250px]  gap-8':''} `}>
+                        <div className={`flex flex-col  justify-center gap-5 rounded-2xl p-3 pt-6 bg-${theme.secondColor}  `}>
                             <Image
                                 src='\theme.svg'
                                 width={90}
@@ -44,12 +41,12 @@ function Mode({width}:Props) {
                                 alt={theme.title}
                             />
                             <div className={` w-full bg-${theme.thirdColor} h-10 rounded-md`}></div>
-                            <div className='bg-blue-10 w-3/4 bg-pink-20 bg-blue-20 bg-blue-30 bg-blue-40 bg-gray-60'></div>{/*this is for enabling retrieval of those colors from theme.colors it doesn't show anything else */}
+                            <div className='bg-blue-10 w-3/4 bg-pink-20  bg-blue-20 bg-blue-30 bg-blue-40 bg-gray-60'></div>
                             <div className='flex  gap-2 w-full'>
-                                <div className={`w-1/6 h-10  bg-${theme.forthColor} rounded-md`}></div>
-                                <div className={`w-1/6 h-10  bg-${theme.forthColor} rounded-md`}></div>
-                                <div className={`w-1/6 h-10  bg-${theme.forthColor} rounded-md`}></div>
-                                <div className={`w-3/6 h-10  bg-${theme.forthColor} rounded-md`}></div>
+                                <div className={`w-1/4 h-10  bg-${theme.forthColor} rounded-md`}></div>
+                                <div className={`w-1/4 h-10  bg-${theme.forthColor} rounded-md`}></div>
+                                <div className={`w-1/4 h-10  bg-${theme.forthColor} rounded-md`}></div>
+                                <div className={`w-1/4 h-10  bg-${theme.forthColor} rounded-md`}></div>
 
                             </div>
 
