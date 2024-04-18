@@ -24,7 +24,7 @@ import { Button } from "./ui/button";
 import { useWindowWidth } from "@react-hook/window-size";
 
 export default function SideNavbar({}: Props) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const onlyWidth = useWindowWidth();
   const mobileWidth = onlyWidth < 768;
