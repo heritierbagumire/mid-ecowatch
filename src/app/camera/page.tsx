@@ -1,4 +1,5 @@
 import React from 'react'
+import SideNavbar from '@/components/SideNavbar'
 import { Button } from "@/components/ui/button"
 import styles from "./came.module.css"
 import {
@@ -15,6 +16,9 @@ import { Label } from "@/components/ui/label"
 import Navbar from '@/components/navbar'
 const CameraPage = () => {
   return (
+    <section className="flex p-8">
+    <SideNavbar />
+
     <div className='container'>
       <Navbar title='Camera' />
           <div>
@@ -92,6 +96,7 @@ const CameraPage = () => {
     
           </div>
       </div>
+      </section>
   )
 }
 

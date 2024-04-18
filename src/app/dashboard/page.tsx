@@ -1,5 +1,6 @@
 /** @format */
 'use client'
+import SideNavbar from "@/components/SideNavbar";
 import PageTitle from "@/components/PageTitle";
 import Image from "next/image";
 import { DollarSign, Users, CreditCard, Activity } from "lucide-react";
@@ -111,6 +112,9 @@ export const STATES: WasteCardProps[] = [
 
 export default function DashboardPage() {
   return (
+    <section className="flex p-8">
+    <SideNavbar />
+
     <div className="flex flex-col gap-5 w-full overflow-hidden">
       <div className="relative top-0">
       <div className="sticky top-0">
@@ -190,5 +194,6 @@ export default function DashboardPage() {
 
     </div>
     </div>
+    </section>
   );
 }

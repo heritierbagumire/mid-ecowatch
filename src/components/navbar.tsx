@@ -4,16 +4,17 @@ import { Search } from './ui/search'
 import { ThemeToggle } from './theme-toggle'
 import { UserNav } from './ui/user-nav'
 import { CommandMenu } from './search-menu'
-type headerProps = {
-  title: string
+
+interface navBarProps{
+  title:string;
 }
 
-const Navbar = ({title}: headerProps) => {
-  return (
-      <div className=''>
-          <div className="flex sticky top-100 items-center justify-between">
+const Navbar = ({title}:navBarProps) => {
+  return (  
+      <div className=' w-[990px] fixed bg-background top-0 p-2 '>
+          <div className="flex items-center justify-between">
       <div className="flex items-center justify-center">
-          <PageTitle className="text-xs md:text-sm lg:text-lg" title={title} />
+        <PageTitle className="text-xs md:text-sm lg:text-lg" title={title} />
       </div>
       <div className="flex items-center justify-center">
         <CommandMenu />

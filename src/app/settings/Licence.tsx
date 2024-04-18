@@ -4,7 +4,7 @@ function Licence() {
   return (
   <section className={`p-6 dark:bg-muted rounded-2xl w-3/5 lg:w-3/4 bg-white flex flex-col gap-6 mt-2 overflow-hidden`}>
       <div className='flex flex-col gap-8 flex-wrap'>
-        <h1 className='font-bold text-wrap w-lg text-blue-dark text-2xl'>Licence Agreement</h1>
+        <h1 className='font-bold dark:text-muted-foreground text-wrap w-lg text-blue-dark text-2xl'>Licence Agreement</h1>
         <div className='max-w-4xl'>
           This License Agreement is a legal agreement between you (either an individual or a single entity) and EcoWatch Licensor for the use of the water drone system interface System. By accessing or using the System, you agree to be bound by the terms of this Agreement.
         </div>

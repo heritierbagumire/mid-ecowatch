@@ -18,7 +18,7 @@ import Link from "next/link";
 
 const page = () => {
   return (
-    <div className="backgroundSignup h-full py-16">
+    <div className="backgroundSignup_login h-full py-16">
       <Card className="w-[50%] font-sans font-extralight mx-[25%]">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl text-center">

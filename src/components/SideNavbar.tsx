@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { Nav } from "./ui/nav";
+import { LineChartIcon } from "lucide-react";
 
 type Props = {};
 
@@ -18,15 +19,13 @@ import {
  
   LocateIcon,
   User2Icon,
-  ScatterChartIcon,
-  LineChartIcon,
 } from "lucide-react";
 import { Button } from "./ui/button";
 
 import { useWindowWidth } from "@react-hook/window-size";
 
 export default function SideNavbar({}: Props) {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const onlyWidth = useWindowWidth();
   const mobileWidth = onlyWidth < 768;
@@ -36,7 +35,7 @@ export default function SideNavbar({}: Props) {
   }
 
   return (
-    <div className="relative min-w-[80px] border-r px-3 m-2  pb-10 pt-24">
+    <div className="w-auto border-r px-3  pt-24 sticky h-[30em] top-8 left-0">
       {!mobileWidth && (
         <div className="absolute right-[-20px] top-7">
           <Button

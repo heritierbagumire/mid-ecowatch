@@ -6,7 +6,7 @@
 
 /** @format */
 "use client";
-
+import SideNavbar from "@/components/SideNavbar";
 import { DataTable } from "@/components/DataTable";
 import { ColumnDef } from "@tanstack/react-table";
 import React from "react";
@@ -149,9 +149,12 @@ const data: Payment[] = [
 
 export default function UsersPage({}: Props) {
   return (
+    <section className="flex">
+    <SideNavbar/>
     <div className="flex flex-col gap-5  w-full">
       <Navbar title="users" />
       <DataTable columns={columns} data={data} />
     </div>
+    </section>
   );
 }

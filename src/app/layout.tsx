@@ -30,9 +30,9 @@ export default function RootLayout({
       >
         {/* sidebar */}
         {/* <p className="border">Sidebar</p> */}
-        <SideNavbar />
+   
         {/* main page */}
-        <div className="p-8 w-full">
+        <div className="w-full">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
