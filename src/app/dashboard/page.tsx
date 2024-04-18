@@ -114,7 +114,7 @@ export default function DashboardPage() {
     <div className="flex flex-col gap-5 w-full overflow-hidden">
       <div className="relative top-0">
       <div className="sticky top-0">
-         <Navbar />
+         <Navbar title="Dashboard" />
         </div>
       </div>
       <div className="dark:bg-inherit bg-gray-100 p-4 rounded-md">

@@ -11,7 +11,6 @@ function Statistics() {
   return (
 
     <div className='flex border  bg-gray-10'>
-      <NavBar />
       <div className='flex flex-col w-full gap-4'>
         <Header
           title='Statistics'

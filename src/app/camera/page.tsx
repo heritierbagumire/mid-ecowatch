@@ -12,11 +12,11 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from '@/components/ui/input'
 import { Label } from "@/components/ui/label"
+import Navbar from '@/components/navbar'
 const CameraPage = () => {
   return (
-      <div className='container'>
-          CameraPage
-
+    <div className='container'>
+      <Navbar title='Camera' />
           <div>
              <div className="flex h-[450px] shrink-0 items-center justify-center rounded-md border border-dashed">
       <div className="mx-auto flex max-w-[420px] flex-col items-center justify-center text-center">
