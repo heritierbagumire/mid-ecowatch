@@ -18,6 +18,8 @@ import {
  
   LocateIcon,
   User2Icon,
+  ScatterChartIcon,
+  LineChartIcon,
 } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -59,6 +61,12 @@ export default function SideNavbar({}: Props) {
             title: "Users",
             href: "/users",
             icon: User2Icon,
+            variant: "ghost"
+          },
+          {
+            title: "Statistics",
+            href: "/statistics",
+            icon: LineChartIcon,
             variant: "ghost"
           },
           {
