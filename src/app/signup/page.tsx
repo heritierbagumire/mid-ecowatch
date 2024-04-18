@@ -32,6 +32,7 @@ const page = () => {
               <Input
                 id="username"
                 type="username"
+                name="username"
                 placeholder="Maria"
                 className="rounded-xl py-5"
               />
@@ -41,6 +42,7 @@ const page = () => {
               <Input
                 id="email"
                 type="email"
+                name="email"
                 placeholder="m@example.com"
                 className="rounded-xl py-5"
               />
@@ -51,11 +53,12 @@ const page = () => {
             <Input
               id="password"
               type="password"
+              name="password"
               className="rounded-xl w-full py-5"
             />
           </div>
           <div className="flex gap-2">
-            <input type="checkbox" className="accent-[#002642]" />
+            <input type="checkbox" className="accent-[#002642]" name="aggrement" value="agree" />
             <span className="mt-0.5">I agree to the terms and conditions that apply.</span>
           </div>
         </CardContent>
