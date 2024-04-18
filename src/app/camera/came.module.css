@@ -1,0 +1,117 @@
+.card {
+  width: 350px;
+  height: 225px;
+  background: rgba(114,113,114);
+  border-radius: 15px;
+  padding: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0px 0px 1px black;
+  transition: all .2s ease-in;
+}
+
+.card::after {
+  content: "hover video";
+  font-size: 1.4em;
+  font-weight: 800;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%,-50%);
+}
+
+.up {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.up .right {
+  display: flex;
+  gap: 20px;
+}
+
+.playbar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.bar {
+  width: 340px;
+  height: 8px;
+  margin-bottom: 8px;
+  background-color: rgba(170, 163, 163, 0.356);
+}
+
+.bar::after {
+  content: "";
+  width: 10px;
+  height: 8px;
+  position: absolute;
+  background: rgb(167, 57, 57);
+  animation: example 25s ease;
+}
+
+.down {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.down__icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.pause {
+  width: 50px;
+  height: 50px;
+  fill: rgb(241, 239, 239);
+}
+
+.time {
+  font-size: .85em;
+}
+
+.svg-icon {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  ;
+  fill: rgb(241, 239, 239);
+}
+
+.card * {
+  opacity: 0;
+  transition: all .2s ease-in;
+}
+
+.card:hover * {
+  opacity: 1;
+}
+
+.card:hover {
+  box-shadow: inset 0px 10px 36px -13px rgba(0,0,0,0.75);
+}
+
+.svg-icon:hover {
+  background-color: rgba(3, 5, 5, 0.5);
+}
+
+@keyframes example {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 330px;
+  }
+}

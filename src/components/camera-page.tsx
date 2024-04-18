@@ -1,52 +1,9 @@
 import React from 'react'
-import { Button } from "@/components/ui/button"
-import styles from "./came.module.css"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from '@/components/ui/input'
-import { Label } from "@/components/ui/label"
-import Navbar from '@/components/navbar'
-const CameraPage = () => {
-  return (
-    <div className='container'>
-      <Navbar title='Camera' />
-          <div>
-             <div className="flex h-[450px] shrink-0 items-center justify-center rounded-md border border-dashed">
-      <div className="mx-auto flex max-w-[420px] flex-col items-center justify-center text-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          className="h-10 w-10 text-muted-foreground"
-          viewBox="0 0 24 24"
-        >
-          <circle cx="12" cy="11" r="1" />
-          <path d="M11 17a1 1 0 0 1 2 0c0 .5-.34 3-.5 4.5a.5.5 0 0 1-1 0c-.16-1.5-.5-4-.5-4.5ZM8 14a5 5 0 1 1 8 0" />
-          <path d="M17 18.5a9 9 0 1 0-10 0" />
-        </svg>
 
-        <h3 className="mt-4 text-lg font-semibold">You want to Watch Live </h3>
-        <p className="mb-4 mt-2 text-sm text-muted-foreground">
-          You have no vidoes now
-        </p>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button size="sm" className="relative">
-              Add Live Video
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-                <div className="card">
+const cameraPage = () => {
+  return (
+      <div>
+          <div className="card">
   <div className="up">
     <svg className="svg-icon" viewBox="0 0 20 20">
 							<path d="M16.198,10.896c-0.252,0-0.455,0.203-0.455,0.455v2.396c0,0.626-0.511,1.137-1.138,1.137H5.117c-0.627,0-1.138-0.511-1.138-1.137V7.852c0-0.626,0.511-1.137,1.138-1.137h5.315c0.252,0,0.456-0.203,0.456-0.455c0-0.251-0.204-0.455-0.456-0.455H5.117c-1.129,0-2.049,0.918-2.049,2.047v5.894c0,1.129,0.92,2.048,2.049,2.048h9.488c1.129,0,2.048-0.919,2.048-2.048v-2.396C16.653,11.099,16.45,10.896,16.198,10.896z"></path>
@@ -84,15 +41,8 @@ const CameraPage = () => {
 		<p className="time">12:23 / 15:43</p>
 	</div>
 </div>
-          </DialogContent>
-            </Dialog>
-          </div>
-          </div>
-         
-    
-          </div>
       </div>
   )
 }
 
-export default CameraPage;
+export default cameraPage;
