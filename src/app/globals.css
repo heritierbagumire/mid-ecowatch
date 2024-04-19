@@ -76,14 +76,10 @@
     @apply bg-background text-foreground;
   }
 }
-.backgroundSignup_login{
-  background-color: #8895B3;
-  background-image: url('../../public/Group\ 163background.svg');
-  background-attachment: fixed;
-  background-position: center;
-  background-size: 90%;
-  background-repeat: no-repeat;
+.backgroundSignuplogin {
+  background: #8895B3 url('../../public/Group\ 163background.svg') no-repeat center/90% fixed;
 }
+
 
 .card {
   width: screen;
@@ -123,7 +119,7 @@
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .bar {

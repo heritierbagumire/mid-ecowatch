@@ -3,6 +3,7 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "./avatar"
+import Link from "next/link"
 import { Button } from "./button"
 import {
   DropdownMenu,
@@ -53,7 +54,9 @@ export function UserNav() {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          Log out
+        <Link href="/login">
+              Logout
+            </Link>
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>

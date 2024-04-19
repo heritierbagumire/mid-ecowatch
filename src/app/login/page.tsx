@@ -15,7 +15,7 @@ import React from "react";
 import Link from "next/link";
 const Login = () => {
   return (
-    <div className="backgroundSignup_login bg-gray-50 w-full h-screen flex items-center justify-center">
+    <div className="backgroundSignuplogin bg-gray-50 w-full h-screen flex items-center justify-center">
       <Card className="w-[50%] font-sans font-extralight mx-[25%]">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl text-center">
@@ -67,7 +67,9 @@ const Login = () => {
         </CardContent>
         <CardFooter>
           <Button className="w-full py-6 rounded-xl self-center mx-[35%] bg-[#8895B3] text-lg">
-         Login
+          <Link href="/dashboard" className=" hover:text-[#002642]">
+          Login
+            </Link>
           </Button>
         </CardFooter>
         <div className="mx-[25%]">

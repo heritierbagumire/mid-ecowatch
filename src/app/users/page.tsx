@@ -149,10 +149,10 @@ const data: Payment[] = [
 
 export default function UsersPage({}: Props) {
   return (
-    <section className="flex">
+    <section className="flex p-8">
     <SideNavbar/>
-    <div className="flex flex-col gap-5  w-full">
-      <Navbar title="users" />
+    <div className="flex flex-col gap-10  w-full">
+      <div><Navbar title="Users" /></div>
       <DataTable columns={columns} data={data} />
     </div>
     </section>

@@ -24,12 +24,20 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@react-hook/window-size": "^3.1.1",
     "@tanstack/react-table": "^8.11.3",
+    "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "google-fonts": "^1.0.0",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.306.0",
-    "next": "14.0.4",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.2",
+    "next": "^14.2.2",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
@@ -39,8 +47,11 @@
     "window-size": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/mongodb": "^4.0.7",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
@@ -48,6 +59,6 @@
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "tailwindcss-debug-screens": "^2.2.1",
-    "typescript": "^5"
+    "typescript": "^5.4.5"
   }
 }

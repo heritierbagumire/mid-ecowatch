@@ -52,7 +52,7 @@ export default function SideNavbar({}: Props) {
         links={[
           {
             title: "Dashboard",
-            href: "/",
+            href: "/dashboard",
             icon: HomeIcon,
             variant: "ghost"
           },
