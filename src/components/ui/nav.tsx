@@ -5,6 +5,7 @@
 import Link from "next/link";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+// i don't want to use buttonVariants anymore I want to expresss the same css but using the current pathname to set it to se
 import { buttonVariants } from "@/components/ui/button";
 import {
   Tooltip,
@@ -45,9 +46,9 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         variant: link.href === pathName ? "default" : "ghost",
                         size: "icon"
                       }),
-                      "h-9 w-9  hover:bg-muted-foreground",
+                      "h-9 w-9 hover:bg-muted-foreground",
                       link.variant === "default" ??
-                        "dark:bg-muted dark:text-muted-foreground dark:hover:bg-mute  hover:da dark:hover:text-white"
+                        "dark:bg-muted dark:text-muted-foreground dark:hover:bg-mute hover:bg-muted dark:hover:text-white"
                     )}
                   >
                     <link.icon className="h-4 w-4" />

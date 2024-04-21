@@ -23,26 +23,7 @@ const Login = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
-          {/* <div className="grid grid-cols-2 gap-6">
-          <Button variant="outline">
-            <Icons.gitHub className="mr-2 h-4 w-4" />
-            Github
-          </Button>
-          <Button variant="outline">
-            <Icons.google className="mr-2 h-4 w-4" />
-            Google
-          </Button>
-        </div>
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <span className="w-full border-t" />
-          </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">
-              Or continue with
-            </span>
-          </div> */}
-          {/* </div> */}
+          
             <div className="flex flex-col gap-4">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -66,20 +47,20 @@ const Login = () => {
           </div>
         </CardContent>
         <CardFooter>
-          <Button className="w-full py-6 rounded-xl self-center mx-[35%] bg-[#8895B3] text-lg">
-          <Link href="/dashboard" className=" hover:text-[#002642]">
+          <button className="w-full bg-primary dark:bg-muted  text-white hover:text-white p-4 rounded-xl self-center mx-[35%] bg-[#8895B3] text-lg">
+          <Link href="/dashboard" className=" hover:text-white">
           Login
             </Link>
-          </Button>
+          </button>
         </CardFooter>
         <div className="mx-[25%]">
-          <Button
-            variant="outline"
-            className="border-gray-500 rounded-xl my-2 px-20 border"
+          <div
+          
+            className="border-gray-500 rounded-xl inline-flex my-2 py-2 font-medium text-sm px-20 border"
           >
-            <Icons.google className="mr-2 h-4 w-4" />
-            Login with Google
-          </Button>
+            <Icons.google className="mr-2 h-4 w-4 mt-1" />
+            Signup with Google
+          </div>
           <p className="my-2 text-center">
                  Do not have an account?{" "}
             <Link href="/signup" className="text-[#8895B3] hover:text-[#002642]">

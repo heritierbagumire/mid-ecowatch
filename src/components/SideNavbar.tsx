@@ -20,7 +20,7 @@ import {
   LocateIcon,
   User2Icon,
 } from "lucide-react";
-import { Button } from "./ui/button";
+
 
 import { useWindowWidth } from "@react-hook/window-size";
 
@@ -38,13 +38,13 @@ export default function SideNavbar({}: Props) {
     <div className="w-auto border-r px-3  pt-24 sticky h-[30em] top-8 left-0">
       {!mobileWidth && (
         <div className="absolute right-[-20px] top-7">
-          <Button
+          <button
             onClick={toggleSidebar}
-            variant="secondary"
-            className=" rounded-full p-2"
+        
+            className=" rounded-full p-2 bg-secondary  dark:bg-muted  text-mute"
           >
             <ChevronRight />
-          </Button>
+          </button>
         </div>
       )}
       <Nav

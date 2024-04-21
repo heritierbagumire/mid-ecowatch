@@ -47,7 +47,7 @@ const Page: React.FC = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post('http://localhost:300/api/signup', formData);
+      const response = await axios.post('http://localhost:3000/api/signup', formData);
       console.log(response.data);
       router.push('/dashboard');
       // Handle successful signup
@@ -57,7 +57,7 @@ const Page: React.FC = () => {
     }
   };
   return (
-    <div className="backgroundSignuplogin h-full py-16">
+    <div className="backgroundSignuplogin bg-gray-50 w-full h-screen flex items-center justify-center">
       <Card className="w-[50%] font-sans font-extralight mx-[25%]">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl text-center">
@@ -109,24 +109,24 @@ const Page: React.FC = () => {
         </CardContent>
         <CardFooter>
           
-          <Button 
+          <button
             type="submit"
-            className="w-full py-6 rounded-xl self-center mx-[35%] bg-[#8895B3] text-lg"
+            className="w-full px-2 py-3 rounded-xl  dark:bg-muted  text-white self-center mx-[35%] bg-[#8895B3] text-lg"
             onClick={handleSubmit}
           >
             <Link href="/login" className="hover:text-[#002642]">
             Sign Up
             </Link>
-          </Button>
+          </button>
         </CardFooter>
         <div className="mx-[25%]">
-          <Button
-            variant="outline"
-            className="border-gray-500 rounded-xl my-2 px-20 border"
+          <div
+          
+            className="border-gray-500 rounded-xl inline-flex my-2 py-2 font-medium text-sm px-20 border"
           >
-            <Icons.google className="mr-2 h-4 w-4" />
+            <Icons.google className="mr-2 h-4 w-4 mt-1" />
             Signup with Google
-          </Button>
+          </div>
           <p className="my-2 text-center">
             Already have an account?{" "}
             <Link href="/login" className="text-[#8895B3] hover:text-[#002642]">
