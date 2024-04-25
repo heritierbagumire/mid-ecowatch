@@ -1,160 +1,52 @@
-/**
- * eslint-disable @next/next/no-img-element
- *
- * @format
- */
+"use client"
+import React, { useState, useEffect } from 'react';
 
-/** @format */
-"use client";
-import SideNavbar from "@/components/SideNavbar";
-import { DataTable } from "@/components/DataTable";
-import { ColumnDef } from "@tanstack/react-table";
-import React from "react";
-import PageTitle from "@/components/PageTitle";
-import Navbar from "@/components/navbar";
+const Users: React.FC = () => {
+  const [users, setUsers] = useState<any[]>([]);
 
-type Props = {};
-type Payment = {
-  name: string;
-  email: string;
-  lastOrder: string;
-  method: string;
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('http://localhost:5005/client/all');
+        if (!response.ok) {
+          throw new Error('Failed to fetch users');
+        }
+        const data = await response.json();
+        const allUsers = data.map((user: {}, index: number) => ({ ...user, numericalId: index + 1 }));
+        setUsers(allUsers);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchUsers();
+  }, []);
+
+  return (
+    <div className="container px-[10%]">
+      <h1 className="text-2xl font-bold mb-4">Users</h1>
+      <table className="table-auto w-full text-left">
+        <thead>
+          <tr>
+            <th className="px-4 py-2 border-2 ">ID</th>
+            <th className="px-4 py-2 border-2 ">Name</th>
+            <th className="px-4 py-2 border-2 ">Email</th>
+            {/* Add more columns as needed */}
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => (
+            
+            <tr key={user._id} className="">
+              <td className="border px-4 py-2">{user.numericalId}</td>
+              <td className="border px-4 py-2">{user.username}</td>
+              <td className="border px-4 py-2">{user.email}</td>
+              {/* Add more columns as needed */}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
-const columns: ColumnDef<Payment>[] = [
-  {
-    accessorKey: "name",
-    header: "Name",
-    cell: ({ row }) => {
-      return (
-        <div className="flex gap-2 items-center">
-          <img
-            className="h-10 w-10"
-            src={`https://api.dicebear.com/7.x/lorelei/svg?seed=${row.getValue(
-              "name"
-            )}`}
-            alt="user-image"
-          />
-          <p>{row.getValue("name")} </p>
-        </div>
-      );
-    }
-  },
-  {
-    accessorKey: "email",
-    header: "Email"
-  },
-  {
-    accessorKey: "lastOrder",
-    header: "Last Order"
-  },
-  {
-    accessorKey: "method",
-    header: "Method"
-  }
-];
-
-const data: Payment[] = [
-  {
-    name: "John Doe",
-    email: "john@example.com",
-    lastOrder: "2023-01-01",
-    method: "Credit Card"
-  },
-  {
-    name: "Alice Smith",
-    email: "alice@example.com",
-    lastOrder: "2023-02-15",
-    method: "PayPal"
-  },
-  {
-    name: "Bob Johnson",
-    email: "bob@example.com",
-    lastOrder: "2023-03-20",
-    method: "Stripe"
-  },
-  {
-    name: "Emma Brown",
-    email: "emma@example.com",
-    lastOrder: "2023-04-10",
-    method: "Venmo"
-  },
-  {
-    name: "Michael Davis",
-    email: "michael@example.com",
-    lastOrder: "2023-05-05",
-    method: "Cash"
-  },
-  {
-    name: "Sophia Wilson",
-    email: "sophia@example.com",
-    lastOrder: "2023-06-18",
-    method: "Bank Transfer"
-  },
-  {
-    name: "Liam Garcia",
-    email: "liam@example.com",
-    lastOrder: "2023-07-22",
-    method: "Payoneer"
-  },
-  {
-    name: "Olivia Martinez",
-    email: "olivia@example.com",
-    lastOrder: "2023-08-30",
-    method: "Apple Pay"
-  },
-  {
-    name: "Noah Rodriguez",
-    email: "noah@example.com",
-    lastOrder: "2023-09-12",
-    method: "Google Pay"
-  },
-  {
-    name: "Ava Lopez",
-    email: "ava@example.com",
-    lastOrder: "2023-10-25",
-    method: "Cryptocurrency"
-  },
-  {
-    name: "Elijah Hernandez",
-    email: "elijah@example.com",
-    lastOrder: "2023-11-05",
-    method: "Alipay"
-  },
-  {
-    name: "Mia Gonzalez",
-    email: "mia@example.com",
-    lastOrder: "2023-12-08",
-    method: "WeChat Pay"
-  },
-  {
-    name: "James Perez",
-    email: "james@example.com",
-    lastOrder: "2024-01-18",
-    method: "Square Cash"
-  },
-  {
-    name: "Charlotte Carter",
-    email: "charlotte@example.com",
-    lastOrder: "2024-02-22",
-    method: "Zelle"
-  },
-  {
-    name: "Benjamin Taylor",
-    email: "benjamin@example.com",
-    lastOrder: "2024-03-30",
-    method: "Stripe"
-  }
-];
-
-export default function UsersPage({}: Props) {
-  return (
-    <section className="flex p-8">
-    <SideNavbar/>
-    <div className="flex flex-col gap-10  w-full">
-      <div><Navbar title="Users" /></div>
-      <DataTable columns={columns} data={data} />
-    </div>
-    </section>
-  );
-}
+export default Users;
