@@ -24,7 +24,6 @@ function Header({title}:header) {
         src="notification.svg"
         alt='person'
         className=' h-10 relative bottom-4  '
-       
         width={100}
         height={100}
         />
