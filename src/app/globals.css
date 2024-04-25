@@ -76,7 +76,14 @@
     @apply bg-background text-foreground;
   }
 }
-
+.backgroundSignup{
+  background-color: #8895B3;
+  background-image: url('../../public/Group\ 163background.svg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .card {
   width: screen;
   height: screen !important;

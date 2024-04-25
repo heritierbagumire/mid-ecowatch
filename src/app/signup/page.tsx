@@ -1,63 +1,48 @@
 "use client";
-import { useRouter } from 'next/navigation';
-import { useState, ChangeEvent, FormEvent } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../../components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
 import React from "react";
 import Link from "next/link";
 
-interface S {
-  username: string;
-  email: string;
-  password: string;
-}
-
-const Page: React.FC = () => {
-
-  const [formData, setFormData] = useState<S>({
-    username: '',
-    email: '',
-    password: '',
-  });
-  
+const Signup: React.FC = () => {
   const router = useRouter();
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: FormEvent) => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    try {
-      const response = await axios.post('http://localhost:3000/api/signup', formData);
-      console.log(response.data);
+    const response = await fetch('http://localhost:5005/client/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password }),
+    });
+    if (response.ok) {
+      console.log("user signed up successfully");
+      alert("user signed up successfully")
       router.push('/dashboard');
-      // Handle successful signup
-    } catch (error) {
-      console.error('Error signing up:', error);
-      // Handle error
+      
+    } else {  
+      console.log("an error was found");
+      alert("user unable to sign up")
+      
     }
   };
+
   return (
-    <div className="backgroundSignuplogin bg-gray-50 w-full h-screen flex items-center justify-center">
+    <div className="backgroundSignup bg-gray-50 w-full h-screen flex items-center justify-center">
       <Card className="w-[50%] font-sans font-extralight mx-[25%]">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl text-center">
@@ -65,68 +50,65 @@ const Page: React.FC = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <div className="gap-4 flex w-full">
-            <div className="w-[50%]">
-              <Label htmlFor="username">Username</Label>
+          <form onSubmit={handleSubmit} method="post">
+            <div className="gap-4 flex w-full my-2">
+              <div className="w-[50%]">
+                <Label htmlFor="username">Username</Label>
+                <Input
+                  type="text"
+                  name="username"
+                  placeholder="Maria"
+                  id="username"
+                  className="rounded-xl py-5 flex h-10 w-full border border-input bg-background px-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  value={username} onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div className="w-[50%]">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="m@example.com"
+                  className="rounded-xl py-5 flex h-10 w-full border border-input bg-background px-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  value={email} onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="grid gap-2 my-2">
+              <Label htmlFor="password">Password</Label>
               <Input
-                id="username"
-                type="username"
-                name="username"
-                placeholder="Maria"
-                className="rounded-xl py-5"
-                value={formData.username}
-                onChange={handleChange}
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Use a strong password"
+                className="rounded-xl w-full py-5 flex h-10 border border-input bg-background px-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                value={password} onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="w-[50%]">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="m@example.com"
-                className="rounded-xl py-5"
-                value={formData.email}
-                onChange={handleChange}
-              />
+            <div className="flex gap-2">
+              <input type="checkbox" className="accent-[#002642]" />
+              <span className="mt-0.5">
+                I agree to the terms and conditions that apply.
+              </span>
             </div>
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              name="password"
-              className="rounded-xl w-full py-5"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="flex gap-2">
-            <input type="checkbox" className="accent-[#002642]" name="aggrement" value="agree" />
-            <span className="mt-0.5">I agree to the terms and conditions that apply.</span>
-          </div>
+            <div className="grid gap-2">
+              <Button
+                type="submit"
+                className="w-[30%] mx-[35%] py-6 px-3 my-3 text-center rounded-xl text-black bg-[#8895B3] text-lg cursor-pointer"
+              >Sign up</Button>
+            </div>
+          </form>
         </CardContent>
-        <CardFooter>
-          
-          <button
-            type="submit"
-            className="w-full px-2 py-3 rounded-xl  dark:bg-muted  text-white self-center mx-[35%] bg-[#8895B3] text-lg"
-            onClick={handleSubmit}
-          >
-            <Link href="/login" className="hover:text-[#002642]">
-            Sign Up
-            </Link>
-          </button>
-        </CardFooter>
+
         <div className="mx-[25%]">
-          <div
-          
-            className="border-gray-500 rounded-xl inline-flex my-2 py-2 font-medium text-sm px-20 border"
+          <Button
+            variant="outline"
+            className="border-gray-500 rounded-xl my-2 px-20 border"
           >
-            <Icons.google className="mr-2 h-4 w-4 mt-1" />
+            <Icons.google className="mr-2 h-4 w-4" />
             Signup with Google
-          </div>
+          </Button>
           <p className="my-2 text-center">
             Already have an account?{" "}
             <Link href="/login" className="text-[#8895B3] hover:text-[#002642]">
@@ -139,4 +121,4 @@ const Page: React.FC = () => {
   );
 };
 
-export default Page;
+export default Signup;
