@@ -2,8 +2,8 @@ import Map from '@/components/map'
 import React from 'react'
 import SideNavbar from '@/components/SideNavbar'
 import Navbar from "@/components/navbar";
-
 const Locationpage = () => {
+
   return (
     <section className="flex p-8">
     <SideNavbar />

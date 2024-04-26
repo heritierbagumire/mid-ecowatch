@@ -31,7 +31,7 @@ const Login = () => {
       router.push("/dashboard");
     } else {
       console.log("an error was found");
-      alert("the data entered are incorrect")
+      alert("Invalid credentials")
     }
   };
   return (

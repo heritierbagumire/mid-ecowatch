@@ -1,26 +1,20 @@
 /** @format */
 'use client'
 import SideNavbar from "@/components/SideNavbar";
-import PageTitle from "@/components/PageTitle";
 import Image from "next/image";
 import { DollarSign, Users, CreditCard, Activity } from "lucide-react";
-import Card, { CardContent, CardProps, WastesProps } from "@/components/Card";
+import { CardContent, CardProps, WastesProps } from "@/components/Card";
 import BarChart from "@/components/BarChart";
-import SalesCard, {  WasteCardProps } from "@/components/WastesCard";
-import { Search } from "@/components/ui/search"
-import { ThemeToggle } from "@/components/theme-toggle";
-import { UserNav } from "@/components/ui/user-nav";
+import {  WasteCardProps } from "@/components/WastesCard";
 import FrameOne from "../../../public/Frame1.png";
 import FrameTwo from "../../../public/frame2.png"
 import FrameThree from "../../../public/Frame3.png"
 import FrameFour from "../../../public/Frame4.png"
 import Navbar from "@/components/navbar";
 import WastesCard from "@/components/WastesCard";
-import StatMap from "@/components/start-up";
-import styles from './page.module.css';
 import SpeedCard from "@/components/speed-card";
 import MapCard from "@/components/map-card";
-
+import React from "react";
 
  const WASTES: WastesProps[] = [
    {
@@ -110,7 +104,7 @@ export const STATES: WasteCardProps[] = [
 
 ];
 
-export default function DashboardPage() {
+const DashboardPage: React.FC = () => {
   return (
     <section className="flex p-8">
     <SideNavbar />
@@ -197,3 +191,4 @@ export default function DashboardPage() {
     </section>
   );
 }
+export default DashboardPage;
