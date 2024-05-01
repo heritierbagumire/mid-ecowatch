@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
@@ -24,14 +25,17 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
-        body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }),
     });
     if (response.ok) {
-      console.log("user logged in successfully");
+      const { token } = await response.json();
+      console.log({ token });
+      localStorage.setItem("token", token); // Store token in localStorage
+      toast.success('You have been logged in successfully!');
       router.push("/dashboard");
     } else {
-      console.log("an error was found");
-      alert("Invalid credentials")
+      console.log("authentication failed");
+      toast.error('Login failed. Please try again.');
     }
   };
   return (

@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../Header'
-import NavBar from '../NavBar'
 import Tests from './Tests'
 import Image from 'next/image'
 import Link from 'next/link'

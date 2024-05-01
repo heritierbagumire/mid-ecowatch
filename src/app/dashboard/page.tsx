@@ -1,5 +1,5 @@
-/** @format */
 'use client'
+/** @format */
 import SideNavbar from "@/components/SideNavbar";
 import Image from "next/image";
 import { DollarSign, Users, CreditCard, Activity } from "lucide-react";
@@ -15,7 +15,8 @@ import WastesCard from "@/components/WastesCard";
 import SpeedCard from "@/components/speed-card";
 import MapCard from "@/components/map-card";
 import React from "react";
-
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
  const WASTES: WastesProps[] = [
    {
        title: 'Plastic Wastes',
@@ -105,6 +106,13 @@ export const STATES: WasteCardProps[] = [
 ];
 
 const DashboardPage: React.FC = () => {
+  const router = useRouter();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
+  }, []);
   return (
     <section className="flex p-8">
     <SideNavbar />

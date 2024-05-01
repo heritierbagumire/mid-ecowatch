@@ -1,20 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SideNavbar from '@/components/SideNavbar'
-import { Button } from "@/components/ui/button"
-import styles from "./came.module.css"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from '@/components/ui/input'
-import { Label } from "@/components/ui/label"
 import Navbar from '@/components/navbar'
+import { useRouter } from 'next/navigation'
 const CameraPage = () => {
+  const router = useRouter();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
+  }, []);
   return (
     <section className="flex p-8">
     <SideNavbar />

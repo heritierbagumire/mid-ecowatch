@@ -1,9 +1,20 @@
-import React from 'react'
-import Page from './signup/page'
-
+"use client"
+import React, { useEffect } from 'react'
+import Page from './login/page'
+import { useRouter } from 'next/navigation';
 const page = () => {
+  const router = useRouter()
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      router.push("/");
+    }else {
+      router.push('/dashboard');
+    }
+  }, []);
   return (
     <div>
+      
       <Page/>
     </div>
   )

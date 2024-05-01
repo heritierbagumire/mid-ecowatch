@@ -1,9 +1,16 @@
 import Map from '@/components/map'
-import React from 'react'
+import React, { useEffect } from 'react'
 import SideNavbar from '@/components/SideNavbar'
 import Navbar from "@/components/navbar";
+import { useRouter } from 'next/navigation';
 const Locationpage = () => {
-
+  const router = useRouter();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
+  }, []);
   return (
     <section className="flex p-8">
     <SideNavbar />

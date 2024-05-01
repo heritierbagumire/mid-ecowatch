@@ -2,11 +2,17 @@ import Image from "next/image";
 import SettingsPage from "./SettingsPage";
 import SideNavbar from "@/components/SideNavbar";
 import Navbar from "@/components/navbar";
-
-
-
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
+  }, []);
   return (
     <main className="flex p-8">
 

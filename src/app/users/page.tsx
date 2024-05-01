@@ -1,9 +1,16 @@
 "use client"
+import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
 const Users: React.FC = () => {
   const [users, setUsers] = useState<any[]>([]);
-
+  const router = useRouter();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
+  }, []);
   useEffect(() => {
     const fetchUsers = async () => {
       try {
