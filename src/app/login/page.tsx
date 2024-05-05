@@ -91,7 +91,7 @@ const Login = () => {
             <span className="mt-1">Login with Google</span>
           </Button>
           <p className="my-2 text-center">
-            Don't have an account yet?{" "}
+            Don&apos;t have an account yet?{" "}
             <Link
               href="/signup"
               className="text-[#8895B3] hover:text-[#002642]"
