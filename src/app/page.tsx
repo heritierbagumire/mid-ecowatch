@@ -2,8 +2,8 @@
 import React, { useEffect } from 'react'
 import Page from './login/page'
 import { useRouter } from 'next/navigation';
-const page = () => {
-  const router = useRouter()
+const Homepage = () => {
+  const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (!token) {
@@ -11,7 +11,7 @@ const page = () => {
     }else {
       router.push('/dashboard');
     }
-  }, []);
+  });
   return (
     <div>
       
@@ -20,4 +20,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Homepage;
