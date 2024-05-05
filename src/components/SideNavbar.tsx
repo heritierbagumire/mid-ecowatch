@@ -8,9 +8,6 @@ import { LineChartIcon } from "lucide-react";
 type Props = {};
 
 import {
-  ShoppingCart,
-  LayoutDashboard,
-  UsersRound,
   Settings,
   
   ChevronRight,
