@@ -1,14 +1,9 @@
 "use client";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
@@ -18,24 +13,34 @@ const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const notify = () => toast("user logged in successfully");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5005/client/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-    if (response.ok) {
-      const { token } = await response.json();
-      console.log({ token });
-      localStorage.setItem("token", token); // Store token in localStorage
-      toast.success('You have been logged in successfully!');
-      router.push("/dashboard");
-    } else {
-      console.log("authentication failed");
-      toast.error('Login failed. Please try again.');
+
+    try {
+      const response = await fetch("http://localhost:5005/client/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const { token } = await response.json();
+        console.log({ token });
+        localStorage.setItem("token", token); // Store token in localStoragez
+        // alert("user logged in successfully");
+        toast.success("user logged in successfully!");
+        router.push("/dashboard");
+      } else {
+        // alert("unable to login in the user :)")
+        toast.error("Invalid credentials. Please try again!")
+        throw new Error("Authentication failed");
+      }
+    } catch (error) {
+      console.error("An error occurred during authentication", error);
+      // Display an error message to the user, e.g., by setting state or showing a toast notification
     }
   };
   return (
@@ -101,6 +106,7 @@ const Login = () => {
           </p>
         </div>
       </Card>
+      <ToastContainer />
     </div>
   );
 };

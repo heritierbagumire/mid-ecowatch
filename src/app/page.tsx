@@ -1,23 +1,11 @@
-"use client"
-import React, { useEffect } from 'react'
-import Page from './login/page'
-import { useRouter } from 'next/navigation';
-const Homepage = () => {
-  const router = useRouter();
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    if (!token) {
-      router.push("/");
-    }else {
-      router.push('/dashboard');
-    }
-  });
+import React from 'react'
+import Login from './login/page'
+const page = () => {
   return (
     <div>
-      
-      <Page/>
+      <Login />
     </div>
   )
 }
 
-export default Homepage;
+export default page
