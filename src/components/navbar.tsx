@@ -11,7 +11,7 @@ interface navBarProps {
 
 const Navbar = ({ title }: navBarProps) => {
   return (
-      <div className=" w-[80%] fixed bg-background top-0 p-2 ">
+      <div className=" w-[980px] fixed bg-background top-0 p-2 ">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-center">
             <PageTitle

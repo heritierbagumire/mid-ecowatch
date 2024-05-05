@@ -52,10 +52,11 @@ exports.login = async (req, res) => {
         .json({ message: "Email entered doesn't match the password" });
     }
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "60s",
+      expiresIn: "300s",
     });
-    res.status(201).json({ message: "User logged in successfully", token });
+    res.status(201).json({ token });
   } catch (error) {
+    console.error(error.message);
     return res
       .status(500)
       .json({ message: "An error occurred while comparing passwords.", error });

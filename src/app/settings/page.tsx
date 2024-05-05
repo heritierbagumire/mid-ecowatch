@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import Image from "next/image";
 import SettingsPage from "./SettingsPage";
 import SideNavbar from "@/components/SideNavbar";

@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+
 import { useRouter } from "next/navigation";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
@@ -31,12 +33,12 @@ const Signup: React.FC = () => {
     });
     if (response.ok) {
       console.log("user signed up successfully");
-      alert("user signed up successfully")
-      router.push('/dashboard');
+      toast.success("User signed up successfully");
+      router.push('/login');
       
     } else {  
       console.log("an error was found");
-      alert("user unable to sign up")
+      toast.error("User already exists, use different credentials.");
       
     }
   };
@@ -87,7 +89,7 @@ const Signup: React.FC = () => {
               />
             </div>
             <div className="flex gap-2">
-              <input type="checkbox" className="accent-[#002642]" />
+              <input type="checkbox" className="accent-[#002642]" required />
               <span className="mt-0.5">
                 I agree to the terms and conditions that apply.
               </span>
@@ -117,6 +119,7 @@ const Signup: React.FC = () => {
           </p>
         </div>
       </Card>
+      <ToastContainer />
     </div>
   );
 };

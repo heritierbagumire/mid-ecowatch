@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import Map from '@/components/map'
 import React, { useEffect } from 'react'
 import SideNavbar from '@/components/SideNavbar'
