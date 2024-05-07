@@ -14,13 +14,15 @@ import {
 } from "@/components/ui/tooltip";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { usePathname } from "next/navigation";
+import { FC } from "react";
+import { IconProps } from "../icons";
 
 interface NavProps {
   isCollapsed: boolean;
   links: {
     title: string;
     label?: string;
-    icon: LucideIcon | string;
+    icon: FC<IconProps> | string;
     variant: "default" | "ghost";
     href: string;
   }[];
@@ -51,7 +53,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         "dark:bg-muted dark:text-muted-foreground dark:hover:bg-mute hover:bg-muted dark:hover:text-white"
                     )}
                   >
-                    <link.icon className="h-4 w-4 bg-transparent" />
+                    <link.icon className="h-4 w-4 " />
                     <span className="sr-only dark:bg-mute">{link.title}</span>
                   </Link>
                 </TooltipTrigger>
