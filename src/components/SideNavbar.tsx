@@ -20,6 +20,7 @@ import {
 
 
 import { useWindowWidth } from "@react-hook/window-size";
+import { Icons } from "./icons";
 
 export default function SideNavbar({}: Props) {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -50,7 +51,7 @@ export default function SideNavbar({}: Props) {
           {
             title: "Dashboard",
             href: "/dashboard",
-            icon: HomeIcon,
+            icon: Icons.home,
             variant: "ghost"
           },
           {
