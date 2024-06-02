@@ -5,20 +5,19 @@ import Image from "next/image";
 import { DollarSign, Users, CreditCard, Activity } from "lucide-react";
 import { CardContent, CardProps, WastesProps } from "@/components/Card";
 import BarChart from "@/components/BarChart";
-import { WasteCardProps } from "@/components/WastesCard";
 import FrameOne from "../../../public/Frame1.png";
 import FrameTwo from "../../../public/frame2.png"
 import FrameThree from "../../../public/Frame3.png"
 import FrameFour from "../../../public/Frame4.png"
 import Navbar from "@/components/navbar";
-import WastesCard from "@/components/WastesCard";
 import SpeedCard from "@/components/speed-card";
 import MapCard from "@/components/map-card";
 import React from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import WastesCard from "@/components/WastesCard";
 
-const WASTES: WastesProps[] = [
+const WASTES = [
   {
     title: 'Plastic Wastes',
     icon: '/plastic.svg',
@@ -84,7 +83,13 @@ const cardData: CardProps[] = [
 ];
 
 
-export const STATES: WasteCardProps[] = [
+type STATEProps = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+const STATES: STATEProps[] = [
 
   {
     icon: "image",

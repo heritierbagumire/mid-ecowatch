@@ -1,5 +1,12 @@
 import { Icons } from "@/components/icons"
 
+export type WasteCardProps = {
+  icon: string;
+  title: string;
+  description: string; 
+};
+
+
 export interface NavItem {
   title: string
   href?: string

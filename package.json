@@ -46,6 +46,7 @@
     "react-dom": "^18",
     "react-toastify": "^10.0.5",
     "recharts": "^2.12.5",
+    "sharp": "^0.33.4",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
     "window-size": "^1.1.1"

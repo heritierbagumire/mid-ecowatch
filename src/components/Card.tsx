@@ -6,15 +6,23 @@ import { cn } from "@/lib/utils";
 import { StaticImageData } from "next/image";
 
 
+interface WastesCollection {
+  [key: string]: WastesProps[];
+}
 export type WastesProps = {
   title: string;
   icon: string;
   variant: string;
-  backgroundFrame: StaticImageData;
+  backgroundFrame: StaticImageData | string;
   data: string;
   search: string;
   date: string;
 };
+
+
+
+
+
 export type CardProps = {
   label: string;
   icon: LucideIcon;
