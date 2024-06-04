@@ -1,24 +1,29 @@
-"use client";
+'use client'
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React from "react";
+
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const notify = () => toast("user logged in successfully");
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5005/client/login", {
+      setLoading(true); // Set loading state to true when form is submitted
+
+      const response = await fetch(`http://localhost:5005/client/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,23 +34,23 @@ const Login = () => {
       if (response.ok) {
         const { token } = await response.json();
         console.log({ token });
-        localStorage.setItem("token", token); // Store token in localStoragez
-        // alert("user logged in successfully");
-        toast.success("user logged in successfully!");
+        localStorage.setItem("token", token);
+        toast.success("User logged in successfully!");
         router.push("/dashboard");
       } else {
-        // alert("unable to login in the user :)")
-        toast.error("Invalid credentials. Please try again!")
+        toast.error("Invalid credentials. Please try again!");
         throw new Error("Authentication failed");
       }
     } catch (error) {
       console.error("An error occurred during authentication", error);
-      // Display an error message to the user, e.g., by setting state or showing a toast notification
+    } finally {
+      setLoading(false); // Reset loading state after authentication attempt
     }
   };
+
   return (
-    <div className="backgroundSignup bg-gray-50 w-full h-screen flex items-center justify-center">
-      <Card className="w-[50%] font-sans font-extralight mx-[25%]">
+    <div className="backgroundSignup bg-gray-50 w-full h-screen flex items-center justify-center p-4 md:p-8">
+      <Card className="w-full max-w-md md:max-w-lg lg:max-w-xl font-sans font-extralight mx-[25%]">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl text-center">EcoWatch Login</CardTitle>
         </CardHeader>
@@ -80,14 +85,38 @@ const Login = () => {
             <div className="grid gap-2">
               <Button
                 type="submit"
-                className="w-[30%] text-black py-6 px-3 my-3 cursor-pointer rounded-xl self-center mx-[35%] bg-[#8895B3] text-lg"
+                className="text-black py-6 px-20 my-3 cursor-pointer rounded-xl self-center bg-[#8895B3] text-lg"
+                disabled={loading} // Disable button when loading state is true
               >
-                Login
+                {loading ? (
+                  <svg
+                    className="animate-spin h-5 w-5 mr-3 text-white mx-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v8H4z"
+                    ></path>
+                  </svg>
+                ) : (
+                  "Login"
+                )}
               </Button>
             </div>
           </form>
         </CardContent>
-        <div className="mx-[25%]">
+        <div className="flex flex-col items-center">
           <Button
             variant="outline"
             className="border-gray-500 rounded-xl my-2 px-20 border"
