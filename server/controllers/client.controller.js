@@ -16,9 +16,10 @@ exports.saveData = async (req, res) => {
     const savedClient = await clientRegister.save();
     const clientUsername = savedClient.username
     const clientEmail = savedClient.email
+    const clientPassword = savedClient.password
     res.status(201).send({
       message: "Client saved successfully",
-      ClientRegister: {clientUsername, clientEmail}
+      ClientRegister: {clientUsername, clientEmail, clientPassword}
     });
   } catch (error) {
     console.error(error);
