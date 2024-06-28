@@ -17,7 +17,7 @@ import React from "react";
 import Link from "next/link";
 
 const Signup: React.FC = () => {
-  const webUrl = "https://ecowatch-hackathon.vercel.app";
+  const signupUrl = "https://mid-ecowatch-backend.onrender.com/client/add";
   const router = useRouter();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -30,7 +30,7 @@ const Signup: React.FC = () => {
 
     try {
       'use server'
-      const response = await fetch(`http://localhost:5005/client/add`, {
+      const response = await fetch(`${signupUrl}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
