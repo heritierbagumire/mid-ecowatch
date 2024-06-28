@@ -147,7 +147,7 @@ const Signup: React.FC = () => {
                         d="M4 12a8 8 0 018-8v8H4z"
                       ></path>
                     </svg>
-                    <span>Loading...</span>
+                    <span>Signing Up...</span>
                   </div>
                 ) : (
                   "Sign up"
