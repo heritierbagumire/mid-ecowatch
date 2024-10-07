@@ -12,10 +12,11 @@ import FrameFour from "../../../public/Frame4.png"
 import Navbar from "@/components/navbar";
 import SpeedCard from "@/components/speed-card";
 import MapCard from "@/components/map-card";
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import WastesCard from "@/components/WastesCard";
+import Loading from "@/components/Loading.logo.component";
 
 const WASTES = [
   {
@@ -113,12 +114,28 @@ const STATES: STATEProps[] = [
 
 const DashboardPage: React.FC = () => {
   const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      router.push("/login");
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      setIsAuthenticated(true);
+    } else {
+      router.push('/login');
     }
-  }, []);
+    setLoading(false);
+  }, [router]); 
+
+  if (loading) {
+    return <Loading /> // You can show a loading spinner or any other UI component here
+  }
+
+  if (!isAuthenticated) {
+    return null; // Return nothing if the user is not authenticated to avoid the dashboard flash
+  }
+
+
   return (
     <section className="flex p-8">
       <SideNavbar />
