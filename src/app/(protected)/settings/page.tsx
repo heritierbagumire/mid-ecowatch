@@ -6,19 +6,12 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const router = useRouter();
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      router.push("/login");
-    }
-  }, []);
   return (
-    <main className="flex">
+    <main className="flex py-10">
 
 
 
-      <div className="flex flex-col gap-5 w-full overflow-hidden">
+      <div className="flex items-center justify-start lg:py-10 flex-col flex-1 h-screen">
       <div className="relative top-0 w-full ">
       <div className="w-full  sticky top-0 px-5">
          <Navbar title="Settings"/>
@@ -28,7 +21,6 @@ export default function Home() {
       </div>
       
       
-    {/* <Dashboard/> */}
     </main>
   );
 }

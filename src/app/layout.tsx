@@ -31,15 +31,7 @@ export default function RootLayout({
    
         {/* main page */}
         <div className="w-full font-sans">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-          enableSystem
-          themes={['light', 'dark']}
-            disableTransitionOnChange
-          >
             {children}
-          </ThemeProvider>
         </div>
       </body>
     </html>

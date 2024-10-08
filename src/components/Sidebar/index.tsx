@@ -47,12 +47,13 @@ const Sidebar = () => {
                         <div
                             key={index}
                             onClick={() => handleTabClick(item.path)}
-                            className={`flex items-center space-x-4 cursor-pointer p-3 rounded-lg transition-colors 
+                            className={`flex items-center space-x-4 cursor-pointer p-3 rounded-lg transition-colors relative
                                 ${activeTab === item.path ? "bg-blue-50 text-blue-600" : "text-gray-600 hover:bg-gray-100"}
                             `}
                         >
+                            <span className={`font-bold ${activeTab === item.path ? "w-[4px] h-[30px] absolute bg-blue-30 -left-2" : ""}`} />
                             <item.icon className={`w-6 h-6 ${activeTab === item.path ? "text-blue-600" : "text-gray-500"}`} />
-                            <span className={`font-medium ${activeTab === item.path ? "font-bold" : ""}`}>{item.name}</span>
+                            <span className={`font-medium ${activeTab === item.path ? "font-bold " : ""}`}>{item.name}</span>
                         </div>
                     ))}
                 </nav>
