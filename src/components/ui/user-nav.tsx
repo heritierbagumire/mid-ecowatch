@@ -22,28 +22,33 @@ export function UserNav() {
   );
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const [token, setToken] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const token = localStorage.getItem("token");
-        const email = localStorage.getItem("email");
-        if (!token) {
-          router.push("/login"); // Redirect to login if no token
-        }
-
         const config = {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         };
+        if (typeof window !== "undefined") {
+          const storedToken = localStorage.getItem("token");
+          const storedEmail = localStorage.getItem("email");
 
-        const { data } = await axios.get(
-          `https://mid-ecowatch-backend.onrender.com/client/email/${email}`,
-          config
-        );
-        setUser(data);
-        setLoading(false);
+          setToken(storedToken);
+          setEmail(storedEmail);
+          const { data } = await axios.get(
+            `https://mid-ecowatch-backend.onrender.com/client/email/${email}`,
+            config
+          );
+          setUser(data);
+          setLoading(false);
+        }
+        if (!token) {
+          router.push("/login"); // Redirect to login if no token
+        }
       } catch (error) {
         console.error(error);
         router.push("/login"); // Redirect to login if token is invalid
@@ -51,7 +56,7 @@ export function UserNav() {
     };
 
     fetchUser();
-  }, [router]);
+  }, [router, email, token]);
 
   if (loading) {
     return <p>Loading...</p>;
