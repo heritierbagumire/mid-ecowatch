@@ -8,9 +8,9 @@ const Loading: React.FC = () => {
             <Image
                 src="/Vector-logo.svg"
                 alt="Loading..."
-                width={150}
-                height={150}
-                className={`${styles.loadingLogo} animate-bounce`}
+                width={50}
+                height={50}
+                className={`${styles.loadingLogo}`}
             />
         </div>
     );
