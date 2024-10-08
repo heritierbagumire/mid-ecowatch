@@ -12,24 +12,21 @@ interface navBarProps {
 
 const Navbar = ({ title }: navBarProps) => {
   return (
-      <div className="container mx-auto fixed bg-background top-0 p-3 max-w-[85%]">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center justify-center">
-            <PageTitle
-              className="text-xs md:text-sm lg:text-lg"
-              title={title}
-            />
-          </div>
-          <div className="flex items-center justify-center">
-            <CommandMenu />
-          </div>
-          <div className="flex items-center space-x-3 justify-center">
-            {/* <ThemeToggle /> */}
+    <div className="container mx-auto fixed bg-background top-0 p-3 max-w-[85%]">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center justify-center">
+          <PageTitle className="text-xs md:text-sm lg:text-lg" title={title} />
+        </div>
+        <div className="flex items-center justify-center">
+          <CommandMenu />
+        </div>
+        <div className="flex items-center space-x-3 justify-center">
+          {/* <ThemeToggle /> */}
           <UserNav />
           <Notification />
-          </div>
         </div>
       </div>
+    </div>
   );
 };
 

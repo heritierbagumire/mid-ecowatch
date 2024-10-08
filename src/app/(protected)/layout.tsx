@@ -34,15 +34,12 @@ export default function AdminLayout({
         return null;
     }
     return (
-        <html lang="en">
-            <body>
+
                 <div className="flex h-screen w-full bg-gray-100">
                     <Sidebar />
                     <div className="flex flex-col w-full h-full ml-64">
                         {children}
                     </div>
                 </div>
-            </body>
-        </html>
     );
 }

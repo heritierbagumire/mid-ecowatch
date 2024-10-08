@@ -14,12 +14,12 @@ exports.saveData = async (req, res) => {
       password: hashedPassword,
     });
     const savedClient = await clientRegister.save();
-    const clientUsername = savedClient.username
-    const clientEmail = savedClient.email
-    const clientPassword = savedClient.password
+    const clientUsername = savedClient.username;
+    const clientEmail = savedClient.email;
+    const clientPassword = savedClient.password;
     res.status(201).send({
       message: "Client saved successfully",
-      ClientRegister: {clientUsername, clientEmail, clientPassword}
+      ClientRegister: { clientUsername, clientEmail, clientPassword },
     });
   } catch (error) {
     console.error(error);
@@ -53,13 +53,21 @@ exports.login = async (req, res) => {
         .json({ message: "Email entered doesn't match the password" });
     }
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "300s",
+      expiresIn: "10h",
     });
-    res.status(201).json({ token });
+    res.status(201).json({ token: token, userId: user._id });
   } catch (error) {
     console.error(error.message);
     return res
       .status(500)
       .json({ message: "An error occurred while comparing passwords.", error });
+  }
+};
+exports.findOne = async (req, res) => {
+  try {
+    const user = await clientSchema.findById(req.params.id);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
   }
 };
