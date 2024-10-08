@@ -20,47 +20,34 @@ export function UserNav() {
   const [user, setUser] = useState<{ username: string; email: string } | null>(
     null
   );
-  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const [token, setToken] = useState<string | null>(null);
   const [email, setEmail] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const config = {
+    if (typeof window !== "undefined") {
+      const storedToken = localStorage.getItem("token");
+      const storedEmail = localStorage.getItem("email");
+
+      setToken(storedToken);
+      setEmail(storedEmail);
+
+      // Now you can make API calls safely
+      if (storedToken && storedEmail) {
+        axios.get(`https://mid-ecowatch-backend.onrender.com/client/email/${storedEmail}`, {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${storedToken}`,
           },
-        };
-        if (typeof window !== "undefined") {
-          const storedToken = localStorage.getItem("token");
-          const storedEmail = localStorage.getItem("email");
-
-          setToken(storedToken);
-          setEmail(storedEmail);
-          const { data } = await axios.get(
-            `https://mid-ecowatch-backend.onrender.com/client/email/${email}`,
-            config
-          );
-          setUser(data);
-          setLoading(false);
-        }
-        if (!token) {
-          router.push("/login"); // Redirect to login if no token
-        }
-      } catch (error) {
-        console.error(error);
-        router.push("/login"); // Redirect to login if token is invalid
+        })
+          .then((response) => {
+            setUser(response.data)
+          })
+          .catch((error) => {
+            console.error("Error fetching user data:", error);
+          });
       }
-    };
-
-    fetchUser();
-  }, [router, email, token]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+    }
+  }, []); // Runs only once when the component mounts
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
