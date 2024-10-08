@@ -72,9 +72,9 @@ exports.findOne = async (req, res) => {
   }
 };
 
-exports.findByUsername = async (req, res) => {
+exports.findByEmail = async (req, res) => {
   try {
-    const user = await clientSchema.findOne({ username: req.params.username });
+    const user = await clientSchema.findOne({ email: req.params.email });
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }

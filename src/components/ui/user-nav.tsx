@@ -27,7 +27,7 @@ export function UserNav() {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        const name = localStorage.getItem("username");
+        const email = localStorage.getItem("email");
         if (!token) {
           router.push("/login"); // Redirect to login if no token
         }
@@ -39,7 +39,7 @@ export function UserNav() {
         };
 
         const { data } = await axios.get(
-          `https://mid-ecowatch-backend.onrender.com/client/username/${name}`,
+          `https://mid-ecowatch-backend.onrender.com/client/email/${email}`,
           config
         );
         setUser(data);
