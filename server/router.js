@@ -6,5 +6,6 @@ router.get('/all', controllers.retrieveAllClients)
 router.post('/add', controllers.saveData)
 router.post('/login', controllers.login)
 router.get('/:id', controllers.findOne)
+router.get('/username/:username', controllers.findByUsername)
 
 module.exports = router

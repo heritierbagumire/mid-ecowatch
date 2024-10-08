@@ -55,7 +55,7 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "10h",
     });
-    res.status(201).json({ token: token, userId: user._id });
+    res.status(201).json({ token: token, username: user.username });
   } catch (error) {
     console.error(error.message);
     return res
@@ -71,3 +71,16 @@ exports.findOne = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+exports.findByUsername = async (req, res) => {
+  try {
+    const user = await clientSchema.findOne({ username: req.params.username });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+

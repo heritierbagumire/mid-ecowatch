@@ -33,10 +33,9 @@ const Login = () => {
       );
 
       if (response.ok) {
-        const { token, userId } = await response.json();
-        console.log({ token, userId });
+        const { token, username } = await response.json();
         localStorage.setItem("token", token);
-        localStorage.setItem("userId", userId);
+        localStorage.setItem("username", username);
         toast.success("User logged in successfully!");
         router.push("/dashboard");
       } else {
