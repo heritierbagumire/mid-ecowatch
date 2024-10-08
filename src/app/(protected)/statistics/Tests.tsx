@@ -1,5 +1,5 @@
 "use client"
-import { TESTS } from '../../../constants/index'
+import { TESTS } from '../../../../constants/index'
 import React,{useState} from 'react'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

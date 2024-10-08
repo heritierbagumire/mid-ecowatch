@@ -1,14 +1,14 @@
 'use client'
 /** @format */
-import SideNavbar from "@/components/SideNavbar";
+import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 import { DollarSign, Users, CreditCard, Activity } from "lucide-react";
 import { CardContent, CardProps, WastesProps } from "@/components/Card";
 import BarChart from "@/components/BarChart";
-import FrameOne from "../../../public/Frame1.png";
-import FrameTwo from "../../../public/frame2.png"
-import FrameThree from "../../../public/Frame3.png"
-import FrameFour from "../../../public/Frame4.png"
+import FrameOne from "../../../../public/Frame1.png"
+import FrameTwo from "../../../../public/frame2.png"
+import FrameThree from "../../../../public/Frame3.png"
+import FrameFour from "../../../../public/Frame4.png"
 import Navbar from "@/components/navbar";
 import SpeedCard from "@/components/speed-card";
 import MapCard from "@/components/map-card";
@@ -113,34 +113,12 @@ const STATES: STATEProps[] = [
 ];
 
 const DashboardPage: React.FC = () => {
-  const router = useRouter();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-
-    if (token) {
-      setIsAuthenticated(true);
-    } else {
-      router.push('/login');
-    }
-    setLoading(false);
-  }, [router]); 
-
-  if (loading) {
-    return <Loading /> // You can show a loading spinner or any other UI component here
-  }
-
-  if (!isAuthenticated) {
-    return null; // Return nothing if the user is not authenticated to avoid the dashboard flash
-  }
+  
 
 
   return (
-    <section className="flex p-8">
-      <SideNavbar />
-
-      <div className="flex flex-col gap-5 w-full overflow-hidden">
+    <section className="flex gap-4">
+      <div className=" flex flex-1 flex-col py-4 gap-5">
         <div className="relative top-0">
           <div className="sticky top-0">
             <Navbar title="Dashboard" />

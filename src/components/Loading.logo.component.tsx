@@ -8,8 +8,8 @@ const Loading: React.FC = () => {
             <Image
                 src="/Vector-logo.svg"
                 alt="Loading..."
-                width={200}
-                height={200}
+                width={150}
+                height={150}
                 className={`${styles.loadingLogo} animate-bounce`}
             />
         </div>

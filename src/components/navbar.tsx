@@ -4,14 +4,15 @@ import { Search } from "./ui/search";
 import { ThemeToggle } from "./theme-toggle";
 import { UserNav } from "./ui/user-nav";
 import { CommandMenu } from "./search-menu";
+import Notification from "./Notification";
 
 interface navBarProps {
-  title: string;
+  title: string | any;
 }
 
 const Navbar = ({ title }: navBarProps) => {
   return (
-      <div className="container mx-auto fixed bg-background top-0 p-2 ">
+      <div className="container mx-auto fixed bg-background top-0 p-3 max-w-[85%]">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-center">
             <PageTitle
@@ -23,8 +24,9 @@ const Navbar = ({ title }: navBarProps) => {
             <CommandMenu />
           </div>
           <div className="flex items-center space-x-3 justify-center">
-            <ThemeToggle />
-            <UserNav />
+            {/* <ThemeToggle /> */}
+          <UserNav />
+          <Notification />
           </div>
         </div>
       </div>

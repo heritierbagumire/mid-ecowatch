@@ -2,7 +2,7 @@ import React from 'react'
 import Tests from './Tests'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SENSORS } from '../../../constants/index'
+import { SENSORS } from '../../../../constants/index'
 
 
 function Statistics() {

@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image";
 import SettingsPage from "./SettingsPage";
-import SideNavbar from "@/components/SideNavbar";
 import Navbar from "@/components/navbar";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -15,10 +14,9 @@ export default function Home() {
     }
   }, []);
   return (
-    <main className="flex p-8">
+    <main className="flex">
 
-      
-      <SideNavbar/>
+
 
       <div className="flex flex-col gap-5 w-full overflow-hidden">
       <div className="relative top-0 w-full ">

@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "../lib/utils";
-import SideNavbar from "@/components/SideNavbar";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,16 +22,15 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen w-full flex ",
+          "min-h-screen w-full",
           inter.className,
         
         )}
       >
-        {/* sidebar */}
-        {/* <p className="border">Sidebar</p> */}
+        
    
         {/* main page */}
-        <div className="w-full">
+        <div className="w-full font-sans">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

@@ -42,7 +42,7 @@ const LoadingBar = () => {
         alt='lighter'
         />
       </div>
-      <span className="ml-2 text-sm  flex font-medium bg-gray-200 w-1/6 items-center justify-center p-2 rounded-md  ">{brightness}%</span>
+      <span className="ml-2 text-sm  flex font-medium bg-gray-200 w-1/6 items-center justify-center p-2 rounded-md ">{brightness}%</span>
     </div>
   );
 };

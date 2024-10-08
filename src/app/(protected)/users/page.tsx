@@ -1,17 +1,22 @@
-"use client"
+"use client";
+import Loading from '@/components/Loading.logo.component';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
 const Users: React.FC = () => {
   const [users, setUsers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
+
     if (!token) {
-      router.push("/login");
+      router.push('/login'); // Redirect if not authenticated
+      return; // Exit the effect early if not authenticated
     }
-  }, []);
-  useEffect(() => {
+
     const fetchUsers = async () => {
       try {
         const response = await fetch('https://mid-ecowatch-backend.onrender.com/client/all');
@@ -19,14 +24,24 @@ const Users: React.FC = () => {
           throw new Error('Failed to fetch users');
         }
         const data = await response.json();
-        const allUsers = data.map((user: {}, index: number) => ({ ...user, numericalId: index + 1 }));
+        const allUsers = data.map((user: {}, index: number) => ({
+          ...user,
+          numericalId: index + 1,
+        }));
         setUsers(allUsers);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false); // Set loading to false when the fetch is done
       }
     };
-    fetchUsers();
-  }, []);
+
+    fetchUsers(); // Call the fetch function
+  }, [router]);
+
+  if (loading) {
+    return <Loading />; // Show a loading spinner while loading
+  }
 
   return (
     <div className="container px-[10%]">
@@ -41,8 +56,7 @@ const Users: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map(user => (
-            
+          {users.map((user) => (
             <tr key={user._id} className="">
               <td className="border px-4 py-2">{user.numericalId}</td>
               <td className="border px-4 py-2">{user.username}</td>

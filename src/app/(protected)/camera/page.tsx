@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect } from 'react'
-import SideNavbar from '@/components/SideNavbar'
+import SideNavbar from '@/components/Sidebar'
 import {
   Dialog,
   DialogContent,
@@ -21,10 +21,7 @@ const CameraPage = () => {
 
   return (
     <section className="flex p-8">
-      <SideNavbar />
-
       <div className='container'>
-        <Navbar title='Camera' />
         <div>
           <div className="flex h-[450px] shrink-0 items-center justify-center rounded-md border border-dashed">
             <div className="mx-auto flex max-w-[420px] flex-col items-center justify-center text-center">
