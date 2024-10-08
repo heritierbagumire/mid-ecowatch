@@ -8,7 +8,7 @@ const routes = require('./router')
 const app = express();
 const PORT = process.env.PORT;
 
-// middlewares
+// middlewares 
 app.use(cors())
 app.use(bodyParser.json())
 

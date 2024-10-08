@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,25 +16,27 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const signinUrl = "https://mid-ecowatch-backend.onrender.com/client/login"
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       setLoading(true); // Set loading state to true when form is submitted
-
-      const response = await fetch(`https://mid-ecowatch-backend.onrender.com/client/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        `https://mid-ecowatch-backend.onrender.com/client/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (response.ok) {
-        const { token } = await response.json();
-        console.log({ token });
+        const { token, username } = await response.json();
         localStorage.setItem("token", token);
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email)
         toast.success("User logged in successfully!");
         router.push("/dashboard");
       } else {

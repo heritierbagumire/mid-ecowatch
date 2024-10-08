@@ -27,9 +27,9 @@ const Navbar = ({ title }: navBarProps) => {
             {/* <ThemeToggle /> */}
           <UserNav />
           <Notification />
-          </div>
         </div>
       </div>
+    </div>
   );
 };
 
